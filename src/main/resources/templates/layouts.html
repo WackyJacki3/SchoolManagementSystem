@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${pageTitle}">Document</title>
+    <link rel="stylesheet" th:href="@{/styles/css/main.css}">
+</head>
+<body>
+    <nav th:fragment="nav">
+        <header>
+            <ul>
+                <li>
+                    <a href="/course/new">Courses</a>
+                </li>
+                <li>
+                    <a>Teachers</a>
+                </li>
+                <li>
+                    <a>Students</a>
+                </li>
+            </ul>
+        </header>
+    </nav>
+</body>
+</html>
