@@ -2,24 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"></script>
     <title th:text="${pageTitle}">Document</title>
-    <link rel="stylesheet" th:href="@{/styles/css/main.css}">
+    <title th:text="${pageTitle}">PMA</title>
+    <link th:href="@{/styles/css/main.css}" rel="stylesheet" />
 </head>
 <body>
     <nav th:fragment="nav">
-        <header>
+        <header class="d-flex justify-content-center py-3">
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="/" class="nav-link active">Home</a></li> 
+                <li class="nav-item"><a href="/course/courses" class="nav-link active">COURSES</a></li> 
+                <li class="nav-item"><a href="/" class="nav-link active">TEACHERS</a></li> 
+                <li class="nav-item"><a href="/" class="nav-link active">STUDENTS</a></li> 
+                <li class="nav-item"><a href="/course/add" class="nav-link">Add Courses</a></li>
+                <li class="nav-item"><a href="/teacher/add" class="nav-link">Add Teacher</a></li>
+                <li class="nav-item"><a href="/student/add" class="nav-link">Add Student</a></li>
+            </ul>
+        <!-- <header>
             <ul>
                 <li>
-                    <a href="/course/new">Courses</a>
+                    <a href="/course/add">Courses</a>
                 </li>
                 <li>
-                    <a>Teachers</a>
+                    <a href="/teacher/add">Teachers</a>
                 </li>
                 <li>
-                    <a>Students</a>
+                    <a href="/student/ad">Students</a>
                 </li>
             </ul>
-        </header>
+        </header> -->
     </nav>
 </body>
 </html>

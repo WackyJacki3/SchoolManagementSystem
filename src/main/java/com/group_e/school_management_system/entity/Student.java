@@ -1,5 +1,7 @@
 package com.group_e.school_management_system.entity;
 
+// import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,6 +20,19 @@ public class Student {
     private String studentLastName;
     private String studentPhoneNumber;
     private String studentEmail;
+
+    // private List<Student> students;
+
+    // @ManyToMany(cascade = 
+    // {CascadeType.DETACH, 
+    //     CascadeType.MERGE, 
+    //     CascadeType.REFRESH, 
+    //     CascadeType.PERSIST},
+    //     fetch = FetchType.EAGER)
+    // @JoinTable(name="project_employee", 
+    // joinColumns = @JoinColumn(name = "employeeId"),
+    // inverseJoinColumns = @JoinColumn(name ="projectId"))
+    // private List<Project> projects;
 
     // constructors
     public Student() {
@@ -71,4 +86,8 @@ public class Student {
         this.studentEmail = studentEmail;
     }
 
+    @Override
+    public String toString(){
+        return studentFirstName;
+    }
 }
