@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head th:replace="layouts :: head (pageTitle = 'Teachers')">
+<head th:replace="layouts :: head (pageTitle = 'STUDENTS')">
 </head>
 <body>
-    <h1>Teacher List</h1>
+    <nav th:replace="layouts :: nav"></nav>
+    <h1>Student List</h1>
 
     <div class="row-of-tables">
         <div class="custom-table">
-            <h4>Teachers</h4>
+            <h4>Students</h4>
             <hr>
 
             <table class="table table-bordered table-striped">

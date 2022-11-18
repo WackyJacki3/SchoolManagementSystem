@@ -33,6 +33,6 @@ public class CourseController {
     public String displayCourses() {
         // List<Student> students = studentRepository.findAll();
 
-        return "course/course";
+        return "course/showCourses";
     }
 }

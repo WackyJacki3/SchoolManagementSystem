@@ -33,7 +33,7 @@ public class TeacherController {
     public String displayTeachers() {
         // List<Teacher> teachers = teacherRepository.findAll();
 
-        return "teacher/teacher";
+        return "teacher/showTeachers";
     }
 
     
