@@ -29,5 +29,12 @@ public class TeacherController {
         return "redirect:/teacher/add";
     }
 
+    @GetMapping("/teachers")
+    public String displayTeachers() {
+        // List<Teacher> teachers = teacherRepository.findAll();
+
+        return "teacher/teacher";
+    }
+
     
 }

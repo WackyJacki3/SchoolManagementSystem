@@ -30,7 +30,7 @@ public class CourseController {
     }
 
     @GetMapping("/courses")
-    public String displayStudents() {
+    public String displayCourses() {
         // List<Student> students = studentRepository.findAll();
 
         return "course/course";
