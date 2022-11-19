@@ -19,7 +19,7 @@ public class CourseController {
     
     @GetMapping("/add")
     public String displayCourseForm(Model model){
-        model.addAttribute("courses", new Course());
+        model.addAttribute("course", new Course());
         return "course/add-course";
     }
 

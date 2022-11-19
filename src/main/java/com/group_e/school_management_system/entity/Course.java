@@ -15,7 +15,6 @@ public class Course {
     private long courseId;
 
     private String title;
-    private String teacherName;
     private String description;
 
     // constructors
@@ -42,14 +41,6 @@ public class Course {
 
 	public void setTitle(String title) {
 		this.title = title;
-	}
-
-    public String getTeacherName() {
-		return this.teacherName;
-	}
-
-	public void setTeacherName(String teacherName) {
-		this.teacherName = teacherName;
 	}
 
 	public String getDescription() {
