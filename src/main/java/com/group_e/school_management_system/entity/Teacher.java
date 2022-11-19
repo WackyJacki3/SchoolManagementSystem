@@ -28,10 +28,12 @@ public class Teacher {
     private String email;
 
 
-    @ManyToMany(cascade = {CascadeType.DETACH, 
+    @ManyToMany(cascade = 
+        {CascadeType.DETACH, 
         CascadeType.MERGE, 
         CascadeType.REFRESH, 
-        CascadeType.PERSIST}, fetch = FetchType.LAZY)
+        CascadeType.PERSIST}, 
+        fetch = FetchType.LAZY)
     @JoinTable(name="teacher_course", 
         joinColumns = @JoinColumn(name = "teacherId"),
         inverseJoinColumns = @JoinColumn(name ="courseId"))

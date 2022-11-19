@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head th:replace="layouts :: head (pageTitle = 'Teachers')">
+<head th:replace="layouts :: head (pageTitle = 'TEACHERS')">
 </head>
 <body>
     <nav th:replace="layouts :: nav"></nav>
@@ -22,12 +22,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- <tr th:each="student: ${students}">
-                        <th th:text="${student.studentFirstName}"></th>
-                        <th th:text="${student.studentLastName}"></th>
-                        <th th:text="${student.studentPhoneNumber}"></th>
-                        <th th:text="${student.studentEmail}"></th>
-                    </tr> -->
+                    <tr th:each="teacher: ${teachers}">
+                        <th th:text="${teacher.firstName}"></th>
+                        <th th:text="${teacher.lastName}"></th>
+                        <th th:text="${teacher.phoneNumber}"></th>
+                        <th th:text="${teacher.email}"></th>
+                    <!-- 
+                        <th th:text="${teachee.course}"></th> -->
+                    </tr>
                 </tbody>
             </table>
         </div>

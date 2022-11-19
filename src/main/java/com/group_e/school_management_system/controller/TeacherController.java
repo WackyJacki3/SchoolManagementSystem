@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.group_e.school_management_system.dao.iTeacherRepository;
 import com.group_e.school_management_system.entity.Teacher;
 
@@ -32,12 +33,11 @@ public class TeacherController {
     }
 
     @GetMapping("/teachers")
-    public String displayTeachers(Model model) {
+    public String displayTeachers(Model model) throws JsonProcessingException {
         List<Teacher> teachers = teacherRepository.findAll();
         model.addAttribute("teachers", teachers);
 
-        return "teacher/showTeachers";
+        return "teacher/show-teachers";
     }
 
-    
 }

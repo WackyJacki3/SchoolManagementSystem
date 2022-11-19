@@ -1,5 +1,7 @@
 package com.group_e.school_management_system.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,8 +33,8 @@ public class CourseController {
 
     @GetMapping("/courses")
     public String displayCourses() {
-        // List<Student> students = studentRepository.findAll();
+        List<Course> courses = courseRepository.findAll();
 
-        return "course/showCourses";
+        return "course/show-courses";
     }
 }

@@ -24,14 +24,14 @@ public class Student {
     
 
     @ManyToMany(cascade = 
-    {CascadeType.DETACH, 
+        {CascadeType.DETACH, 
         CascadeType.MERGE, 
         CascadeType.REFRESH, 
         CascadeType.PERSIST},
-        fetch = FetchType.EAGER)
-    @JoinTable(name="project_employee", 
-    joinColumns = @JoinColumn(name = "employeeId"),
-    inverseJoinColumns = @JoinColumn(name ="projectId"))
+        fetch = FetchType.LAZY)
+    @JoinTable(name="student_course", 
+    joinColumns = @JoinColumn(name = "studentId"),
+    inverseJoinColumns = @JoinColumn(name ="courseId"))
     private List<Course> courses;
 
 
@@ -102,15 +102,13 @@ public class Student {
         return courses;
     }
 
-
     public void setCourses(List<Course> courses) {
         this.courses = courses;
     }
 
-     
 
     // @Override
     // public String toString(){
-    //     return studentFirstName;
+    //     return firstName + " " + lastName;
     // }
 }
