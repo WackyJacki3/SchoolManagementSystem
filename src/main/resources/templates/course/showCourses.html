@@ -14,21 +14,17 @@
             <table class="table table-bordered table-striped">
                 <thead class="thead-dark">
                     <tr>
-                        <th>Title</th>
-                        <th>Description</th>
-                        <!-- 
-                        <th>Phone Number</th>
-                        <th>Email Address</th>
-                        <th>Courses</th> -->
+                        <th>Course Title</th>
+                        <!-- <th>Teacher Name</th> -->
+                        <th>Course Description</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- <tr th:each="student: ${students}">
-                        <th th:text="${student.studentFirstName}"></th>
-                        <th th:text="${student.studentLastName}"></th>
-                        <th th:text="${student.studentPhoneNumber}"></th>
-                        <th th:text="${student.studentEmail}"></th>
-                    </tr> -->
+                    <tr th:each="Course: ${course}">
+                        <th th:text="${course.title}"></th>
+                        <!-- <th th:text="${teacher.name}"></th> -->
+                        <th th:text="${course.descripton}"></th>
+                    </tr>
                 </tbody>
             </table>
         </div>

@@ -1,5 +1,7 @@
 package com.group_e.school_management_system.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,8 +32,9 @@ public class TeacherController {
     }
 
     @GetMapping("/teachers")
-    public String displayTeachers() {
-        // List<Teacher> teachers = teacherRepository.findAll();
+    public String displayTeachers(Model model) {
+        List<Teacher> teachers = teacherRepository.findAll();
+        model.addAttribute("teachers", teachers);
 
         return "teacher/showTeachers";
     }

@@ -35,9 +35,9 @@ public class Student {
     private List<Course> courses;
 
 
+    // constructors
     public Student() {
     }
-
 
     public Student(String firstName, String lastName, String phoneNumber, String email, List<Course> courses) {
         this.firstName = firstName;
@@ -107,8 +107,6 @@ public class Student {
         this.courses = courses;
     }
 
-    
-    // constructors
      
 
     // @Override

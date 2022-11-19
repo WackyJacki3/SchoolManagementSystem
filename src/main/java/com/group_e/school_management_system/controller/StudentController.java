@@ -38,7 +38,7 @@ public class StudentController {
         List<Student> students = studentRepository.findAll();
         model.addAttribute("students", students);
 
-        return "student/showStudents";
+        return "student/show-students";
     }
     
 }

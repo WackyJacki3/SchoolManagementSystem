@@ -14,13 +14,13 @@ public interface iCourseRepository extends JpaRepository<Course, Long>{
     @Override
     List<Course> findAll();
 
-    @Query(nativeQuery = true, value = "SELECT e.courseName as courseName, e.teacherName as teacherName, " +
-    "COUNT(pe.courseName_id) as countofcourse " +
-    "FROM employee e " +
-    "LEFT JOIN project_employee pe " +
-    "ON e.employee_id = pe.employee_id " +
-    "GROUP BY e.first_name, e.last_name " +
-    "ORDER BY 3 DESC;")
-    public List<CourseList> employeeProjects();
+    // @Query(nativeQuery = true, value = "SELECT e.title as title, e.teacherName as teacherName, " +
+    // "COUNT(pe.courseName_id) as countofcourse " +
+    // "FROM employee e " +
+    // "LEFT JOIN project_employee pe " +
+    // "ON e.employee_id = pe.employee_id " +
+    // "GROUP BY e.first_name, e.last_name " +
+    // "ORDER BY 3 DESC;")
+    // public List<CourseList> employeeProjects();
 
 }
