@@ -22,12 +22,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- <tr th:each="student: ${students}">
-                        <th th:text="${student.studentFirstName}"></th>
-                        <th th:text="${student.studentLastName}"></th>
-                        <th th:text="${student.studentPhoneNumber}"></th>
-                        <th th:text="${student.studentEmail}"></th>
-                    </tr> -->
+                    <tr th:each="student: ${students}">
+                        <th th:text="${student.firstName}"></th>
+                        <th th:text="${student.lastName}"></th>
+                        <th th:text="${student.phoneNumber}"></th>
+                        <th th:text="${student.email}"></th>
+                    </tr>
                 </tbody>
             </table>
         </div>
