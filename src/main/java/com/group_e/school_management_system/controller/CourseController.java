@@ -19,14 +19,14 @@ public class CourseController {
     
     @GetMapping("/add")
     public String displayCourseForm(Model model){
-        model.addAttribute("course", new Course());
+        model.addAttribute("courses", new Course());
         return "course/add-course";
     }
 
     @PostMapping("/save")
     public String createCourse(Course course, Model model) {
         courseRepository.save(course);
-        return "redirect:/course/add";
+        return "redirect:/course/add-course";
     }
 
     @GetMapping("/courses")

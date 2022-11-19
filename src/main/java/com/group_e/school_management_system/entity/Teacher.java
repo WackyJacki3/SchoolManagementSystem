@@ -1,33 +1,52 @@
 package com.group_e.school_management_system.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
+import java.util.List;
+
+// import javax.persistence.CascadeType;
+// import javax.persistence.Entity;
+// import javax.persistence.FetchType;
+// import javax.persistence.GeneratedValue;
+// import javax.persistence.GenerationType;
+// import javax.persistence.Id;
+// import javax.persistence.JoinTable;
+// import javax.persistence.ManyToMany;
+// import javax.persistence.SequenceGenerator;
+import javax.persistence.*;
+
 
 @Entity
 public class Teacher {
     
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "instructor_sequence")
+    @SequenceGenerator(name = "teacher_sequence")
     private long teacherId;
 
-    private String teacherFirstName;
-    private String teacherLastName;
-    private String teacherPhoneNumber;
-    private String teacherEmail;
+    private String firstName;
+    private String lastName;
+    private String phoneNumber;
+    private String email;
+
+
+    @ManyToMany(cascade = {CascadeType.DETACH, 
+        CascadeType.MERGE, 
+        CascadeType.REFRESH, 
+        CascadeType.PERSIST}, fetch = FetchType.LAZY)
+    @JoinTable(name="teacher_course", 
+        joinColumns = @JoinColumn(name = "teacherId"),
+        inverseJoinColumns = @JoinColumn(name ="courseId"))
+    List<Course> courses;
 
     // constructors
     public Teacher() {
     }
 
-    public Teacher(String teacherFirstName, String teacherLastName, String teacherPhoneNumber, String teacherEmail) {
-        this.teacherFirstName = teacherFirstName;
-        this.teacherLastName = teacherLastName;
-        this.teacherPhoneNumber = teacherPhoneNumber;
-        this.teacherEmail = teacherEmail;
+    public Teacher(String firstName, String lastName, String phoneNumber, String email, List<Course> courses) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.courses = courses;
     }
 
     // getters & setters
@@ -39,38 +58,44 @@ public class Teacher {
         this.teacherId = teacherId;
     }
 
-    public String getTeacherFirstName() {
-        return teacherFirstName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setTeacherFirstName(String teacherFirstName) {
-        this.teacherFirstName = teacherFirstName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getTeacherLastName() {
-        return teacherLastName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setTeacherLastName(String teacherLastName) {
-        this.teacherLastName = teacherLastName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getTeacherPhoneNumber() {
-        return teacherPhoneNumber;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setTeacherPhoneNumber(String teacherPhoneNumber) {
-        this.teacherPhoneNumber = teacherPhoneNumber;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
-    public String getTeacherEmail() {
-        return teacherEmail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setTeacherEmail(String teacherEmail) {
-        this.teacherEmail = teacherEmail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    
+    public List<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
+    }
     
 }

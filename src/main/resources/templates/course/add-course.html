@@ -6,17 +6,35 @@
     <nav th:replace="layouts :: nav"></nav>
     <div class="container">
         <!-- <form action="/course/add" method="POST"> -->
-        <form action="">
+        <form action="course/save" method="POST">
             <fieldset>
                 <legend>Add New Course</legend>
                 <div class="form-group mb-2">
-                    <label for="firstName" class="mb-2">Course Name: </label>
-                    <input class="form-control" type="text">
+                    <label for="title" class="mb-2">Course Title: </label>
+                    <input class="form-control" type="text" th:field="cousre.title">
+                </div>
+
+
+                <div class="form-group mb-2">
+                    <label for="teacherName" class="mb-2">Teacher Name: </label>
+                    <input type="text" class="form-control">
                 </div>
 
                 <div class="form-group mb-2">
-                    <label for="lastName" class="mb-2">Istractor Name: </label>
+                    <label for="description" class="mb-2">Course Description: </label>
                     <input type="text" class="form-control">
+                </div>
+
+
+                <div class="form-group mb-2">
+                    <label class="mb-2">Courses: </label>
+                    <br>
+                    <select class="form-control" multiple="multiple" th:field="*{courses}">
+                        <option th:each="
+                        course: ${courses}" 
+                        th:value="${course.courseId}"
+                        th:text="${course}"></option>
+                    </select>
                 </div>
 
                 <br>

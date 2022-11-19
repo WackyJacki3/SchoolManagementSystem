@@ -14,41 +14,50 @@ public class Course {
     @SequenceGenerator(name = "course_sequence")
     private long courseId;
 
-    private String courseTitle;
-    private String courseDescription;
-    
+    private String title;
+    private String teacherName;
+    private String description;
+
     // constructors
     public Course() {
     }
 
-    public Course(String courseTitle, String courseDescription) {
-        this.courseTitle = courseTitle;
-        this.courseDescription = courseDescription;
+    public Course(String title, String description) {
+        this.title = title;
+        this.description = description;
     }
 
     // getters & setters
-    public long getCourseId() {
-        return courseId;
-    }
+	public long getCourseId() {
+		return this.courseId;
+	}
 
-    public void setCourseId(long courseId) {
-        this.courseId = courseId;
-    }
+	public void setCourseId(long courseId) {
+		this.courseId = courseId;
+	}
 
-    public String getCourseTitle() {
-        return courseTitle;
-    }
+	public String getTitle() {
+		return this.title;
+	}
 
-    public void setCourseTitle(String courseTitle) {
-        this.courseTitle = courseTitle;
-    }
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
-    public String getCourseDescription() {
-        return courseDescription;
-    }
+    public String getTeacherName() {
+		return this.teacherName;
+	}
 
-    public void setCourseDescription(String courseDescription) {
-        this.courseDescription = courseDescription;
-    }
-    
+	public void setTeacherName(String teacherName) {
+		this.teacherName = teacherName;
+	}
+
+	public String getDescription() {
+		return this.description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 }

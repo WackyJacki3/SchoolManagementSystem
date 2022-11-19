@@ -1,12 +1,13 @@
 package com.group_e.school_management_system.entity;
 
-// import java.util.List;
+import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
+// import javax.persistence.Entity;
+// import javax.persistence.GeneratedValue;
+// import javax.persistence.GenerationType;
+// import javax.persistence.Id;
+// import javax.persistence.SequenceGenerator;
+import javax.persistence.*;
 
 @Entity
 public class Student {
@@ -16,78 +17,102 @@ public class Student {
     @SequenceGenerator(name = "student_sequence")
     private long studentId;
 
-    private String studentFirstName;
-    private String studentLastName;
-    private String studentPhoneNumber;
-    private String studentEmail;
+    private String firstName;
+    private String lastName;
+    private String phoneNumber;
+    private String email;
+    
 
-    // private List<Student> students;
+    @ManyToMany(cascade = 
+    {CascadeType.DETACH, 
+        CascadeType.MERGE, 
+        CascadeType.REFRESH, 
+        CascadeType.PERSIST},
+        fetch = FetchType.EAGER)
+    @JoinTable(name="project_employee", 
+    joinColumns = @JoinColumn(name = "employeeId"),
+    inverseJoinColumns = @JoinColumn(name ="projectId"))
+    private List<Course> courses;
 
-    // @ManyToMany(cascade = 
-    // {CascadeType.DETACH, 
-    //     CascadeType.MERGE, 
-    //     CascadeType.REFRESH, 
-    //     CascadeType.PERSIST},
-    //     fetch = FetchType.EAGER)
-    // @JoinTable(name="project_employee", 
-    // joinColumns = @JoinColumn(name = "employeeId"),
-    // inverseJoinColumns = @JoinColumn(name ="projectId"))
-    // private List<Project> projects;
 
-    // constructors
     public Student() {
     }
 
-    public Student(String studentFirstName, String studentLastName, String studentPhoneNumber, String studentEmail) {
-        this.studentFirstName = studentFirstName;
-        this.studentLastName = studentLastName;
-        this.studentPhoneNumber = studentPhoneNumber;
-        this.studentEmail = studentEmail;
+
+    public Student(String firstName, String lastName, String phoneNumber, String email, List<Course> courses) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.courses = courses;
     }
 
-    // getters & setters
+
     public long getStudentId() {
         return studentId;
     }
+
 
     public void setStudentId(long studentId) {
         this.studentId = studentId;
     }
 
-    public String getStudentFirstName() {
-        return studentFirstName;
+
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setStudentFirstName(String studentFirstName) {
-        this.studentFirstName = studentFirstName;
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getStudentLastName() {
-        return studentLastName;
+
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setStudentLastName(String studentLastName) {
-        this.studentLastName = studentLastName;
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getStudentPhoneNumber() {
-        return studentPhoneNumber;
+
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setStudentPhoneNumber(String studentPhoneNumber) {
-        this.studentPhoneNumber = studentPhoneNumber;
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
-    public String getStudentEmail() {
-        return studentEmail;
+
+    public String getEmail() {
+        return email;
     }
 
-    public void setStudentEmail(String studentEmail) {
-        this.studentEmail = studentEmail;
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    @Override
-    public String toString(){
-        return studentFirstName;
+
+    public List<Course> getCourses() {
+        return courses;
     }
+
+
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
+    }
+
+    
+    // constructors
+     
+
+    // @Override
+    // public String toString(){
+    //     return studentFirstName;
+    // }
 }
