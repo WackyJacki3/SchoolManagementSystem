@@ -40,4 +40,18 @@ public class TeacherController {
         return "teacher/show-teachers";
     }
 
+
+    // edit a teacher's info
+    // @GetMapping("/teachers/edit/{teacherId}")
+    // public String editStudent(@PathVariable("teacherId") Teacher teacherId, Model model) {
+    //     Teacher teacher = teacherRepository.getTeacherById(teacherId);
+    //     model.addAttribute("teacher", teacher);
+
+    //     return "teacher/edit-teacher";
+    // }
+    @GetMapping("/showTeachers/edit")
+    public String editTeacher() {
+        return "teacher/edit-teacher";
+    }
+
 }

@@ -51,7 +51,7 @@ public class StudentController {
 
     //     return "student/edit-student";
     // }
-    @GetMapping("/students/edit")
+    @GetMapping("/showStudents/edit")
     public String editStudent() {
         return "student/edit-student";
     }
@@ -68,6 +68,7 @@ public class StudentController {
 
     //     return "StudentAdd";
     // }
+    
 
     // delete a student
     // @GetMapping("/Studentshow/delete/{ID}")
