@@ -19,6 +19,7 @@
                         <th>Phone Number</th>
                         <th>Email Address</th>
                         <th>Courses</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -27,6 +28,12 @@
                         <th th:text="${student.lastName}"></th>
                         <th th:text="${student.phoneNumber}"></th>
                         <th th:text="${student.email}"></th>
+                        <th></th>
+                        <th>
+                            <!-- <button class="btn btn-success"><a href="/students/edit/{studentId}">EDIT</a></button> -->
+                            <button class="btn btn-success"><a href="/students/edit">EDIT</a></button>
+                            <button class="btn btn-danger">DELETE</button>
+                        </th>
                     </tr>
                 </tbody>
             </table>

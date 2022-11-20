@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.group_e.school_management_system.dao.iCourseRepository;
 import com.group_e.school_management_system.entity.Course;
 
@@ -28,13 +29,13 @@ public class CourseController {
     @PostMapping("/save")
     public String createCourse(Course course, Model model) {
         courseRepository.save(course);
-        return "redirect:/course/add-course";
+        return "redirect:/course/add";
     }
 
-    @GetMapping("/courses")
-    public String displayCourses() {
+    @GetMapping("/showCourses")
+    public String displayCourses(Model model) throws JsonProcessingException {
         List<Course> courses = courseRepository.findAll();
-
+        model.addAttribute("courses", courses);
         return "course/show-courses";
     }
 }

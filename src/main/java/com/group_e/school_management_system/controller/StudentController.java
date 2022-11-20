@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+// import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -34,7 +35,7 @@ public class StudentController {
         return "redirect:/student/add";
     }
 
-    @GetMapping("/students")
+    @GetMapping("/showStudents")
     public String displayStudents(Model model) throws JsonProcessingException {
         List<Student> students = studentRepository.findAll();
         model.addAttribute("students", students);
@@ -42,13 +43,39 @@ public class StudentController {
         return "student/show-students";
     }
 
-    // @GetMapping("/students")
-    // public String displayStudents(Student student, Model model) throws JsonProcessingException {
-    //     List<Student> students = studentRepository.findAll();
-    //     model.addAttribute("students", students);
-    //     students.add(student);
+    // edit a student's info
+    // @GetMapping("/students/edit/{studentId}")
+    // public String editStudent(@PathVariable("studentId") Student studentId, Model model) {
+    //     Student student = studentRepository.getStudentById(studentId);
+    //     model.addAttribute("student", student);
 
-    //     return "student/show-students";
+    //     return "student/edit-student";
+    // }
+    @GetMapping("/students/edit")
+    public String editStudent() {
+        return "student/edit-student";
+    }
+
+
+
+    // update a student's info
+    // @PostMapping("students/edit/UpdateStudent")
+    // public String UpdateStudent(@ModelAttribute Student student, Model model, HttpSession session){
+    //     // studentRepository.addStudent(student);
+
+    //     model.addAttribute("newStudent", new Student());
+    //     session.setAttribute("msg","Student Added Sucessfully...");
+
+    //     return "StudentAdd";
+    // }
+
+    // delete a student
+    // @GetMapping("/Studentshow/delete/{ID}")
+    // public String deleteStudent(@PathVariable("ID") Long ID, HttpSession session) {
+    //     studentSer.deleteByStudentId(ID);
+    //     session.setAttribute("msg", "The User ID " + ID + " Deleted Succesfully");
+
+    //     return "redirect:/Studentshow";
     // }
     
 }

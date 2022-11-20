@@ -3,13 +3,17 @@ package com.group_e.school_management_system.dao;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.group_e.school_management_system.entity.Student;
 
+@Repository
 public interface iStudentRepository extends JpaRepository<Student, Long>{
 
     @Override
     public List<Student> findAll();
+
+    // public Student getStudentById(Student studentId);
 
     // @Query(nativeQuery = true, value = "SELECT e.title as title, e.teacherName as teacherName, " +
     // "COUNT(pe.courseName_id) as countofcourse " +

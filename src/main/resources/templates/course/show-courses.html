@@ -17,6 +17,7 @@
                         <th>Course Title</th>
                         <!-- <th>Teacher Name</th> -->
                         <th>Course Description</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -24,6 +25,10 @@
                         <th th:text="${course.title}"></th>
                         <!-- <th th:text="${teacher.name}"></th> -->
                         <th th:text="${course.descripton}"></th>
+                        <th>
+                            <button class="btn btn-success"><a href="/students/edit/{studentId}">EDIT</a></button>
+                            <button class="btn btn-danger">DELETE</button>
+                        </th>
                     </tr>
                 </tbody>
             </table>

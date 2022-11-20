@@ -32,7 +32,7 @@ public class TeacherController {
         return "redirect:/teacher/add";
     }
 
-    @GetMapping("/teachers")
+    @GetMapping("/showTeachers")
     public String displayTeachers(Model model) throws JsonProcessingException {
         List<Teacher> teachers = teacherRepository.findAll();
         model.addAttribute("teachers", teachers);

@@ -19,6 +19,7 @@
                         <th>Phone Number</th>
                         <th>Email Address</th>
                         <th>Courses</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -27,8 +28,12 @@
                         <th th:text="${teacher.lastName}"></th>
                         <th th:text="${teacher.phoneNumber}"></th>
                         <th th:text="${teacher.email}"></th>
-                    <!-- 
-                        <th th:text="${teachee.course}"></th> -->
+                        <th></th>
+                    <!-- <th th:text="${teachee.course}"></th> -->
+                        <th>
+                            <button class="btn btn-success">EDIT</button>
+                            <button class="btn btn-danger">DELETE</button>
+                        </th>
                     </tr>
                 </tbody>
             </table>
