@@ -21,13 +21,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="Course: ${course}">
+                    <tr th:each="course: ${courses}">
                         <th th:text="${course.title}"></th>
                         <!-- <th th:text="${teacher.name}"></th> -->
-                        <th th:text="${course.descripton}"></th>
+                        <th th:text="${course.description}"></th>
                         <th>
-                            <button class="btn btn-success"><a href="/students/edit/{studentId}">EDIT</a></button>
-                            <button class="btn btn-danger">DELETE</button>
+                            <button class="btn btn-success"><a href="/student/showStudents/edit" style="text-decoration: none; color: inherit;">EDIT</a></button>
+                            <button class="btn btn-danger" onclick="confirmStudentDeletion()">DELETE</button>
                         </th>
                     </tr>
                 </tbody>
