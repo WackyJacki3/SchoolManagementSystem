@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="layouts :: head (pageTitle = 'TEACHERS')">
+</head>
+<body>
+    <nav th:replace="layouts :: nav"></nav>
+    <h1>Teacher List</h1>
+
+    <div class="row-of-tables">
+        <div class="custom-table">
+            <h4>Teachers</h4>
+            <hr>
+
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Phone Number</th>
+                        <th>Email Address</th>
+                        <th>Courses</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="teacher: ${teachers}">
+                        <th th:text="${teacher.firstName}"></th>
+                        <th th:text="${teacher.lastName}"></th>
+                        <th th:text="${teacher.phoneNumber}"></th>
+                        <th th:text="${teacher.email}"></th>
+                        <th></th>
+                    <!-- <th th:text="${teachee.course}"></th> -->
+                        <th>
+                            <button class="btn btn-success"><a href="/teacher/showTeachers/edit"  style="text-decoration: none; color: inherit;">EDIT</a></button>
+                            <button class="btn btn-danger" onclick="confirmTeacherDeletion()">DELETE</button>
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

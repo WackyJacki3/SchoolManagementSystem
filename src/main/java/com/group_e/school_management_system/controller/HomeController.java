@@ -9,6 +9,7 @@ public class HomeController {
     
     @GetMapping("/")
     public String displayHome(Model model) {
+       
         return "home/index";
     }
 }

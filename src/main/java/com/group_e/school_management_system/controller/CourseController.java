@@ -1,5 +1,7 @@
 package com.group_e.school_management_system.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.group_e.school_management_system.dao.iCourseRepository;
 import com.group_e.school_management_system.entity.Course;
 
@@ -29,10 +32,10 @@ public class CourseController {
         return "redirect:/course/add";
     }
 
-    @GetMapping("/courses")
-    public String displayStudents() {
-        // List<Student> students = studentRepository.findAll();
-
-        return "course/course";
+    @GetMapping("/showCourses")
+    public String displayCourses(Model model) throws JsonProcessingException {
+        List<Course> courses = courseRepository.findAll();
+        model.addAttribute("courses", courses);
+        return "course/show-courses";
     }
 }
