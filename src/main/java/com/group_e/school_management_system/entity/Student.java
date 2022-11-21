@@ -32,7 +32,7 @@ public class Student {
     @JoinTable(name="student_course", 
     joinColumns = @JoinColumn(name = "studentId"),
     inverseJoinColumns = @JoinColumn(name ="courseId"))
-    private List<Course> courses;
+    List<Course> courses;
 
 
     // constructors
