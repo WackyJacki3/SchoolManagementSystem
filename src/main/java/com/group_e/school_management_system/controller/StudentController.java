@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.group_e.school_management_system.dao.iCourseRepository;
 import com.group_e.school_management_system.dao.iStudentRepository;
+import com.group_e.school_management_system.entity.Course;
 import com.group_e.school_management_system.entity.Student;
 
 
@@ -23,9 +25,14 @@ public class StudentController {
     @Autowired
     iStudentRepository studentRepository;
 
+    @Autowired
+    iCourseRepository courseRepository;
+
     @GetMapping("/add")
     public String displayStudentForm(Model model) {
         model.addAttribute("student", new Student());
+        List<Course> courses = courseRepository.findAll();
+        model.addAttribute("courses", courses);
         return "student/add-student";
     }
 
