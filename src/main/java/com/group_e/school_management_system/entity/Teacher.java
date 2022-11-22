@@ -100,4 +100,8 @@ public class Teacher {
         this.courses = courses;
     }
     
+    @Override
+    public String toString(){
+        return firstName + "" + lastName;
+    }
 }

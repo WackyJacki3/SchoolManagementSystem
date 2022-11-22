@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.group_e.school_management_system.dao.iCourseRepository;
 import com.group_e.school_management_system.dao.iTeacherRepository;
+import com.group_e.school_management_system.entity.Course;
 import com.group_e.school_management_system.entity.Teacher;
 
 @Controller
@@ -19,10 +21,15 @@ public class TeacherController {
 
     @Autowired
     iTeacherRepository teacherRepository;
+
+    @Autowired
+    iCourseRepository courseRepository;
     
     @GetMapping("/add")
     public String displayInstructorForm(Model model) {
         model.addAttribute("teacher", new Teacher());
+        List<Course> courses = courseRepository.findAll();
+        model.addAttribute("courses", courses);
         return "teacher/add-teacher";
     }
 

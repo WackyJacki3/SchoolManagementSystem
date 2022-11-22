@@ -4,7 +4,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
+
+import java.util.List;
+
+import javax.persistence.*;
 
 @Entity
 public class Course {
@@ -16,6 +21,29 @@ public class Course {
 
     private String title;
     private String description;
+
+
+	@ManyToMany(cascade = 
+        {CascadeType.DETACH, 
+        CascadeType.MERGE, 
+        CascadeType.REFRESH, 
+        CascadeType.PERSIST},
+        fetch = FetchType.LAZY)
+    @JoinTable(name="student_course", 
+    joinColumns = @JoinColumn(name = "courseId"),
+    inverseJoinColumns = @JoinColumn(name ="studentId"))
+    List<Student> students;
+
+	@ManyToMany(cascade = 
+        {CascadeType.DETACH, 
+        CascadeType.MERGE, 
+        CascadeType.REFRESH, 
+        CascadeType.PERSIST},
+        fetch = FetchType.LAZY)
+    @JoinTable(name="teacher_course", 
+    joinColumns = @JoinColumn(name = "courseId"),
+    inverseJoinColumns = @JoinColumn(name ="teacherId"))
+    List<Teacher> teachers;
 
     // constructors
     public Course() {
@@ -51,4 +79,25 @@ public class Course {
 		this.description = description;
 	}
 
+	public List<Student> getStudents() {
+		return students;
+	}
+
+	public void setStudents(List<Student> students) {
+		this.students = students;
+	}
+
+	public List<Teacher> getTeachers() {
+		return teachers;
+	}
+
+	public void setTeachers(List<Teacher> teachers) {
+		this.teachers = teachers;
+	}
+
+	@Override
+	public String toString(){
+		return title;
+	}
+	
 }
