@@ -1,0 +1,26 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+
+.navbar {
+  background-color: #b97375;
+}
+
+.nav-item a {
+  color: #e2dcde;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.nav-item a:hover {
+  color: #ceb1be;
+  /* text-decoration: underline; */
+  font-weight: 900;
+}
+.nav-item a:active {
+  color: #7b3437 !important;
+}
+/* .nav-active a:active {
+  color: #7b3437;
+} */
