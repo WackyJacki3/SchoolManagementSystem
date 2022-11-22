@@ -4,12 +4,13 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
 
 import com.group_e.school_management_system.dto.CourseList;
 import com.group_e.school_management_system.entity.Course;
 
 
-public interface iCourseRepository extends JpaRepository<Course, Long>{
+public interface iCourseRepository extends CrudRepository<Course, Long>{
 
     @Override
     List<Course> findAll();

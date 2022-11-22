@@ -1,55 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head th:replace="layouts :: head (pageTitle = 'STUDENTS')"> </head>
-  <body>
+<head th:replace="layouts :: head (pageTitle = 'STUDENTS')">
+</head>
+<body>
     <nav th:replace="layouts :: nav"></nav>
-    <div class="container">
-      <h1>Student List</h1>
+    <h1>Student List</h1>
 
-      <div class="row-of-tables">
+    <div class="row-of-tables">
         <div class="custom-table">
-          <!-- <h4>Students</h4> -->
-          <hr />
+            <h4>Students</h4>
+            <hr>
+            
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Phone Number</th>
+                        <th>Email Address</th>
+                        <th>Courses</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody class ="table-group-divider">
+                    <tr th:each="student: ${students}">
+                        <th th:text="${student.firstName}"></th>
+                        <th th:text="${student.lastName}"></th>
+                        <th th:text="${student.phoneNumber}"></th>
+                        <th th:text="${student.email}"></th>
+                        <th th:text="${student.courses}"></th>
+                        <th>
+                            <!-- <button class="btn btn-success"><a href="/students/edit/{studentId}">EDIT</a></button> -->
+                            <button class="btn btn-success"><a href="/student/showStudents/edit" style="text-decoration: none; color: inherit;">EDIT</a></button>
+                            <button class="btn btn-danger"><a th:href="@{/student/delete/{id}(id=${student.studentId})}">DELETE</a></button>
 
-          <table class="table table-bordered table-striped">
-            <thead class="thead-dark">
-              <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Phone Number</th>
-                <th>Email Address</th>
-                <th>Courses</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody class="table-group-divider">
-              <tr th:each="student: ${students}">
-                <th th:text="${student.firstName}"></th>
-                <th th:text="${student.lastName}"></th>
-                <th th:text="${student.phoneNumber}"></th>
-                <th th:text="${student.email}"></th>
-                <th th:text="${student.courses}"></th>
-                <th>
-                  <!-- <button class="btn btn-success"><a href="/students/edit/{studentId}">EDIT</a></button> -->
-                  <button class="btn btn-success">
-                    <a
-                      href="/student/showStudents/edit"
-                      style="text-decoration: none; color: inherit"
-                      >EDIT</a
-                    >
-                  </button>
-                  <button
-                    class="btn btn-danger"
-                    onclick="confirmStudentDeletion()"
-                  >
-                    DELETE
-                  </button>
-                </th>
-              </tr>
-            </tbody>
-          </table>
+
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-      </div>
     </div>
-  </body>
+</body>
 </html>
