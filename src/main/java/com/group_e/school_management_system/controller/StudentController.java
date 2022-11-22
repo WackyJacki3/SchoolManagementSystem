@@ -2,11 +2,13 @@ package com.group_e.school_management_system.controller;
 
 import java.util.List;
 
+import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 // import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,6 +43,18 @@ public class StudentController {
         studentRepository.save(student);
         return "redirect:/student/add";
     }
+
+    @GetMapping("/delete/{id}")
+    public String deleteStudentById(@PathVariable("id") String studentId, Model model) {
+        studentRepository.deleteById(Long.parseLong(studentId));
+        return "redirect:/student/showStudents";
+    }
+
+    /* @PostMapping("/delete")
+    public String deleteStudent(Student student, Model model, long studentId) {
+        studentRepository.deleteById(studentId);
+        return "student/show-students";
+    } */
 
     @GetMapping("/showStudents")
     public String displayStudents(Model model) throws JsonProcessingException {

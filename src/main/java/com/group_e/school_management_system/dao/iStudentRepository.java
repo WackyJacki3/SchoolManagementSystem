@@ -3,15 +3,18 @@ package com.group_e.school_management_system.dao;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import com.group_e.school_management_system.entity.Student;
 
 @Repository
-public interface iStudentRepository extends JpaRepository<Student, Long>{
+public interface iStudentRepository extends CrudRepository<Student, Long>{
 
     @Override
     public List<Student> findAll();
+
+    public void deleteById(long id);
 
     // public Student getStudentById(Student studentId);
 
