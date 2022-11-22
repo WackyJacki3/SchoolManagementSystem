@@ -10,7 +10,7 @@
         <div class="custom-table">
             <h4>Students</h4>
             <hr>
-
+            
             <table class="table table-bordered table-striped">
                 <thead class="thead-dark">
                     <tr>
@@ -22,7 +22,7 @@
                         <th>Actions</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class ="table-group-divider">
                     <tr th:each="student: ${students}">
                         <th th:text="${student.firstName}"></th>
                         <th th:text="${student.lastName}"></th>

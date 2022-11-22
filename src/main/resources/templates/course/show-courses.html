@@ -1,42 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head th:replace="layouts :: head (pageTitle = 'COURSES')">
-</head>
-<body>
+  <head th:replace="layouts :: head (pageTitle = 'COURSES')"> </head>
+  <body>
     <nav th:replace="layouts :: nav"></nav>
-    <h1>Course List</h1>
+    <div class="container">
+      <h1>Course List</h1>
 
-    <div class="row-of-tables">
+      <div class="row-of-tables">
         <div class="custom-table">
-            <h4>Courses</h4>
-            <hr>
+          <!-- <h4>Courses</h4> -->
+          <hr />
 
-            <table class="table table-bordered table-striped">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>Course Title</th>
-                        <!-- <th>Teacher Name</th> -->
-                        <th>Course Description</th>
-                        <th>Students</th>
-                        <th>Teacher(s)</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="course: ${courses}">
-                        <th th:text="${course.title}"></th>
-                        <!-- <th th:text="${teacher.name}"></th> -->
-                        <th th:text="${course.description}"></th>
-                        <th th:text="${course.students}"></th>
-                        <th th:text="${course.teachers}"></th>
-                        <th>
-                            <button class="btn btn-success"><a href="/student/showStudents/edit" style="text-decoration: none; color: inherit;">EDIT</a></button>
-                            <button class="btn btn-danger" onclick="confirmStudentDeletion()">DELETE</button>
-                        </th>
-                    </tr>
-                </tbody>
-            </table>
+          <table class="table table-bordered table-striped">
+            <thead class="table-custom">
+              <tr>
+                <th>Course Title</th>
+                <!-- <th>Teacher Name</th> -->
+                <th>Course Description</th>
+                <th>Students</th>
+                <th>Teacher(s)</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody class="table-group-divider">
+              <tr th:each="course: ${courses}">
+                <th th:text="${course.title}"></th>
+                <!-- <th th:text="${teacher.name}"></th> -->
+                <th th:text="${course.description}"></th>
+                <th th:text="${course.students}"></th>
+                <th th:text="${course.teachers}"></th>
+                <th>
+                  <button class="btn btn-success">
+                    <a
+                      href="/student/showStudents/edit"
+                      style="text-decoration: none; color: inherit"
+                      >EDIT</a
+                    >
+                  </button>
+                  <button
+                    class="btn btn-danger"
+                    onclick="confirmStudentDeletion()"
+                  >
+                    DELETE
+                  </button>
+                </th>
+              </tr>
+            </tbody>
+          </table>
         </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
