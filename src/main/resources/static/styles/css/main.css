@@ -24,3 +24,34 @@
 /* .nav-active a:active {
   color: #7b3437;
 } */
+
+h1 {
+  margin: 10px 10px;
+  padding-top: 50px;
+}
+.homepage-head {
+  padding-top: 100px;
+}
+
+.btn-custom {
+  background-color: #f1e4e8 !important;
+}
+
+.card-body {
+  /* position: absolute; */
+}
+
+.nav-list {
+  text-align: center;
+}
+
+.table-custom {
+  background-color: #1b1b3a;
+  color: #f1e4e8;
+  font-weight: 700 !important;
+  text-align: center;
+}
+
+* {
+  font-weight: 300;
+}
