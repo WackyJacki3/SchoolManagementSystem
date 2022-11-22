@@ -107,8 +107,8 @@ public class Student {
     }
 
 
-    // @Override
-    // public String toString(){
-    //     return firstName + " " + lastName;
-    // }
+    @Override
+    public String toString(){
+        return firstName + " " + lastName;
+    }
 }
