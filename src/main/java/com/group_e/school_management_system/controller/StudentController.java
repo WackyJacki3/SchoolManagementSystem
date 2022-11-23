@@ -50,12 +50,6 @@ public class StudentController {
         return "redirect:/student/showStudents";
     }
 
-    /* @PostMapping("/delete")
-    public String deleteStudent(Student student, Model model, long studentId) {
-        studentRepository.deleteById(studentId);
-        return "student/show-students";
-    } */
-
     @GetMapping("/showStudents")
     public String displayStudents(Model model) throws JsonProcessingException {
         List<Student> students = studentRepository.findAll();

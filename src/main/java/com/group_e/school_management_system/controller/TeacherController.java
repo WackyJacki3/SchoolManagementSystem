@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -37,6 +38,12 @@ public class TeacherController {
     public String createTeacher(Teacher teacher, Model model) {
         teacherRepository.save(teacher);
         return "redirect:/teacher/add";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteStudentById(@PathVariable("id") String teacherId, Model model) {
+        teacherRepository.deleteById(Long.parseLong(teacherId));
+        return "redirect:/teacher/showTeachers";
     }
 
     @GetMapping("/showTeachers")
