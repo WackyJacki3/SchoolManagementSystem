@@ -3,7 +3,7 @@
   <head th:replace="layouts :: head (pageTitle = 'TEACHERS')"> </head>
   <body>
     <nav th:replace="layouts :: nav"></nav>
-    <div class="container">
+    <div class="container test">
       <h1>Teacher List</h1>
 
       <div class="row-of-tables">
@@ -36,6 +36,13 @@
                       href="/teacher/showTeachers/edit"
                       style="text-decoration: none; color: inherit"
                       >EDIT</a
+                    >
+                  </button>
+
+                  <button class="btn btn-sm btn-custom delete">
+                    <a
+                      th:href="@{/teacher/delete/{id}(id=${teacher.teacherId})}"
+                      >DELETE</a
                     >
                   </button>
                 </th>
