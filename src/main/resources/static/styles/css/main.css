@@ -8,7 +8,13 @@
   font-weight: 400;
 }
 .navbar {
-  background-color: #b97375;
+  background: rgb(173, 97, 99);
+  background: linear-gradient(
+    90deg,
+    rgba(173, 97, 99, 1) 0%,
+    rgba(185, 115, 117, 1) 45%,
+    rgba(206, 177, 190, 1) 100%
+  );
 }
 
 .nav-item a {
@@ -24,9 +30,9 @@
 .nav-item a:active {
   color: #7b3437 !important;
 }
-/* .nav-active a:active {
+.nav-active a:active {
   color: #7b3437;
-} */
+}
 
 h1 {
   margin: 10px 10px;
@@ -65,4 +71,50 @@ h1 {
 .select-list {
   margin-top: 20px;
   margin-bottom: 30px;
+}
+
+body {
+  background-color: #f1eced;
+}
+
+/* ボタン本体 */
+.btn-custom.edit a {
+  display: inline-block;
+  width: 80px;
+  padding: 0.3em 0.5em;
+  background-color: #01a9d3;
+  box-shadow: 0 5px 0 #004f69;
+  border-radius: 20px;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+}
+.btn-custom.delete a {
+  display: inline-block;
+  width: 80px;
+  padding: 0.3em 0.5em;
+  background-color: #92140c;
+  box-shadow: 0 5px 0 #540b06;
+  border-radius: 20px;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+}
+.btn-custom a:hover {
+  box-shadow: none;
+  transform: translateY(5px);
+}
+.btn-align {
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.card-custom {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 0 10px;
+  height: 30rem;
+  width: 18rem;
+  justify-content: center;
 }
