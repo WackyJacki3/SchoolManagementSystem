@@ -1,39 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <head th:replace="layouts :: head (pageTitle = 'CREATE TEACHER')"></head>
-</head>
-<body>
+  </head>
+  <body>
     <nav th:replace="layouts :: nav"></nav>
     <div class="container">
-        <form action="/teacher/save" method="POST" th:object="${teacher}">
-            <fieldset>
-                <legend>New Teacher</legend>
-                <div class="form-group mb-2">
-                    <label for="teacherFirstName" class="mb-2">Teacher's First Name:</label>
-                    <input type="text" class="form-control" th:field="${teacher.firstName}">
-                </div>
-                <div class="form-group">
-                    <label for="teacherLastName" class="mb-2">Teacher's Last Name:</label>
-                    <input type="text" class="form-control" th:field="${teacher.lastName}"></div>
-                <div class="form-group">
-                    <label for="teacherPhoneNumber" class="mb-2">Teacher's Phone Number:</label>
-                    <input type="text" class="form-control" th:field="${teacher.phoneNumber}">
-                </div>
-                <div class="form-group">
-                    <label for="teacherEmail" class="mb-2">Teacher's Email Address</label>
-                    <input type="text" class="form-control" th:field="${teacher.email}">
-                </div>
-                <div class="form-group">
-                    <label for="teacher_course" class="mb-2">Courses: </label>
-                    <select class="form-control" multiple="multiple" th:field="*{courses}">
-                        <option th:each="course: ${courses}" th:value="${course.courseId}" th:text="${course}"></option>
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-dark">Submit</button>
-            </fieldset>
-        </form>
+      <form action="/teacher/save" method="POST" th:object="${teacher}">
+        <fieldset>
+          <legend class="adding-page-custom">New Teacher</legend>
+
+          <div class="row">
+            <div class="col">
+              <label for="teacherFirstName" class="mb-2"></label>
+              <input
+                type="text"
+                placeholder="First name"
+                class="form-control"
+                th:field="${teacher.firstName}"
+              />
+            </div>
+            <div class="col">
+              <label for="teacherLastName" class="mb-2"></label>
+              <input
+                type="text"
+                placeholder="Last name"
+                class="form-control"
+                th:field="${teacher.lastName}"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="teacherPhoneNumber" class="mb-2"></label>
+            <input
+              type="text"
+              placeholder="Phone Number"
+              class="form-control"
+              th:field="${teacher.phoneNumber}"
+            />
+          </div>
+          <div class="form-group">
+            <label for="teacherEmail" class="mb-2"></label>
+            <input
+              type="text"
+              placeholder="E-mail Address"
+              class="form-control"
+              th:field="${teacher.email}"
+            />
+          </div>
+          <div class="form-group select-list">
+            <label for="teacher_course" class="mb-2">Courses: </label>
+            <select
+              class="form-control"
+              multiple="multiple"
+              th:field="*{courses}"
+            >
+              <option
+                th:each="course: ${courses}"
+                th:value="${course.courseId}"
+                th:text="${course}"
+              ></option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-dark">Submit</button>
+        </fieldset>
+      </form>
     </div>
-</body>
+  </body>
 </html>
