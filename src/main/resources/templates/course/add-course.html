@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head th:replace="layouts :: head (pageTitle = 'CREATE COURSE')">
-</head>
-<body>
+  <head th:replace="layouts :: head (pageTitle = 'CREATE COURSE')"> </head>
+  <body>
     <nav th:replace="layouts :: nav"></nav>
     <div class="container">
-        <!-- <form action="/course/add" method="POST"> -->
-        <form action="/course/save" method="POST">
-            <fieldset>
-                <legend>Add New Course</legend>
-                <div class="form-group mb-2">
-                    <label for="title" class="mb-2">Course Title: </label>
-                    <input class="form-control" type="text" th:field="${course.title}">
-                </div>
+      <!-- <form action="/course/add" method="POST"> -->
+      <form action="/course/save" method="POST">
+        <fieldset>
+          <legend class="adding-page-custom">Add New Course</legend>
+          <div class="form-group mb-2">
+            <label for="title" class="mb-2">Course Title: </label>
+            <input
+              class="form-control"
+              type="text"
+              th:field="${course.title}"
+            />
+          </div>
 
-                <div class="form-group mb-2">
-                    <label for="description" class="mb-2">Course Description: </label>
-                    <input type="text" class="form-control" th:field="${course.description}">
-                </div>
+          <div class="form-group mb-2">
+            <label for="description" class="mb-2">Course Description: </label>
+            <input
+              type="text"
+              class="form-control"
+              th:field="${course.description}"
+            />
+          </div>
 
-                <!-- <div class="form-group mb-2">
+          <!-- <div class="form-group mb-2">
                     <label class="mb-2">Courses: </label>
                     <br>
                     <select class="form-control" multiple="multiple" th:field="*{courses}">
@@ -28,14 +35,12 @@
                         th:value="${course.courseId}"
                         th:text="${course}"></option>
                     </select>
-                </div> --> -->
+                </div> -->
 
-                <br>
-                <button type="submit" class="btn btn-dark">Submit</button>
-            </fieldset>
-
-        </form>
+          <br />
+          <button type="submit" class="btn btn-dark">Submit</button>
+        </fieldset>
+      </form>
     </div>
-
-</body>
+  </body>
 </html>
