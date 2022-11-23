@@ -42,8 +42,9 @@
                   <button class="btn btn-sm btn-custom delete">
                     <a
                       th:href="@{/teacher/delete/{id}(id=${teacher.teacherId})}"
-                      >DELETE</a
-                    >
+                      onclick="confirmStudentDeletion()">
+                      DELETE
+                    </a>
                   </button>
                 </th>
               </tr>
