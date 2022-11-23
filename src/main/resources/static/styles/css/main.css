@@ -5,7 +5,7 @@
 @import "bootstrap/scss/utilities";
 
 * {
-  font-weight: 300;
+  font-weight: 400;
 }
 .navbar {
   background-color: #b97375;
