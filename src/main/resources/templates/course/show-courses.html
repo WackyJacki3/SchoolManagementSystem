@@ -37,12 +37,7 @@
                       >EDIT</a
                     >
                   </button>
-                  <button
-                    class="btn btn-danger"
-                    onclick="confirmStudentDeletion()"
-                  >
-                    DELETE
-                  </button>
+                  <button class="btn btn-danger"><a th:href="@{/course/delete/{id}(id=${course.courseId})}">DELETE</a></button>
                 </th>
               </tr>
             </tbody>
