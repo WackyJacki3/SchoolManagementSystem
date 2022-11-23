@@ -31,14 +31,13 @@
                 <th th:text="${teacher.courses}"></th>
                 <!-- <th th:text="${teachee.course}"></th> -->
                 <th>
-                  <button class="btn btn-success">
+                  <button class="btn btn-sm btn-custom edit">
                     <a
                       href="/teacher/showTeachers/edit"
                       style="text-decoration: none; color: inherit"
                       >EDIT</a
                     >
                   </button>
-                  <button class="btn btn-danger"><a th:href="@{/teacher/delete/{id}(id=${teacher.teacherId})}">DELETE</a></button>
                 </th>
               </tr>
             </tbody>

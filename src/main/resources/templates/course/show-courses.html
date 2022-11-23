@@ -30,14 +30,22 @@
                 <th th:text="${course.students}"></th>
                 <th th:text="${course.teachers}"></th>
                 <th>
-                  <button class="btn btn-success">
-                    <a
-                      href="/student/showStudents/edit"
-                      style="text-decoration: none; color: inherit"
-                      >EDIT</a
-                    >
-                  </button>
-                  <button class="btn btn-danger"><a th:href="@{/course/delete/{id}(id=${course.courseId})}">DELETE</a></button>
+                  <div class="btn-align">
+                    <button class="btn btn-sm btn-custom edit">
+                      <a
+                        href="/student/showStudents/edit"
+                        style="text-decoration: none; color: inherit"
+                        >EDIT</a
+                      >
+                    </button>
+                    <button class="btn btn-sm btn-custom delete">
+                      <a
+                        th:href="@{/course/delete/{id}(id=${course.courseId})} "
+                        >DELETE</a
+                      >
+                    </button>
+                  </div>
+
                 </th>
               </tr>
             </tbody>
