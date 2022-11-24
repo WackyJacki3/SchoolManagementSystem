@@ -33,8 +33,7 @@
                 <th>
                   <button class="btn btn-sm btn-custom edit">
                     <a
-                      href="/teacher/showTeachers/edit"
-                      style="text-decoration: none; color: inherit"
+                      th:href="@{/teacher/edit/{id}(id=${teacher.teacherId})}"
                       >EDIT</a
                     >
                   </button>

@@ -33,6 +33,19 @@ public class CourseController {
         return "redirect:/course/add";
     }
 
+    @GetMapping("/edit/{id}")
+    public String editCourseForm(@PathVariable("id") String courseId, Model model) {
+        Course course = courseRepository.findById(Long.parseLong(courseId));
+        model.addAttribute("course", course);
+        return "course/edit-course";
+    }
+
+    @PostMapping("/edit/save")
+    public String saveEditCourse(Course course, Model model) {
+        courseRepository.save(course);
+        return "redirect:/course/showCourses";
+    }
+
     @GetMapping("/delete/{id}")
     public String deleteStudentById(@PathVariable("id") String courseId, Model model) {
         courseRepository.deleteById(Long.parseLong(courseId));

@@ -12,5 +12,8 @@ public interface iTeacherRepository extends CrudRepository<Teacher, Long> {
     public List<Teacher> findAll();
     
     public void deleteById(long id);
-    // @Query(value = "")
+
+    public List<Teacher> save(long id);
+
+    public Teacher findById(long id);
 }

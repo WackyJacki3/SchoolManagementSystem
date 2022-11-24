@@ -1,6 +1,7 @@
 package com.group_e.school_management_system.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.websocket.server.PathParam;
 
@@ -44,6 +45,23 @@ public class StudentController {
         return "redirect:/student/add";
     }
 
+    @GetMapping("/edit/{id}")
+    public String editStudentForm(@PathVariable("id") String studentId, Model model) {
+        Student student = studentRepository.findById(Long.parseLong(studentId));
+        model.addAttribute("student", student);
+        // model.addAttribute("student", new Student());
+        List<Course> courses = courseRepository.findAll();
+        model.addAttribute("courses", courses);
+        return "student/edit-student";
+    }
+
+
+    @PostMapping("/edit/save")
+    public String saveEditStudent(Student student, Model model) {
+        studentRepository.save(student);
+        return "redirect:/student/showStudents";
+    }
+
     @GetMapping("/delete/{id}")
     public String deleteStudentById(@PathVariable("id") String studentId, Model model) {
         studentRepository.deleteById(Long.parseLong(studentId));
@@ -66,10 +84,10 @@ public class StudentController {
 
     //     return "student/edit-student";
     // }
-    @GetMapping("/showStudents/edit")
-    public String editStudent() {
-        return "student/edit-student";
-    }
+    // @GetMapping("/showStudents/edit")
+    // public String editStudent() {
+    //     return "student/edit-student";
+    // }
 
 
 
