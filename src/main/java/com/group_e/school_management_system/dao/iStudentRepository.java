@@ -17,6 +17,8 @@ public interface iStudentRepository extends CrudRepository<Student, Long>{
 
     public List<Student> save(long id);
     
+    // public List<Student> findAllById(long id);
+    
     public Student findById(long id);
 
     /* private String firstName;

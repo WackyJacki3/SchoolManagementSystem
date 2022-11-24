@@ -19,7 +19,7 @@
           <div class="card-body">
             <h5 class="card-title scroll" th:text="${course.title}"></h5>
             <p class="card-text scroll" th:text="${course.description}"></p>
-            <a href="#" class="btn btn-home">Course Description</a>
+            <a th:href="@{/course/showCourse/{id}(id=${course.courseId})}" class="btn btn-home">Course Description</a>
           </div>
         </div>
       </div>
