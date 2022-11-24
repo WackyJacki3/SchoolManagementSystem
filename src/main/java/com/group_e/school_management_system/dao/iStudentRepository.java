@@ -15,6 +15,15 @@ public interface iStudentRepository extends CrudRepository<Student, Long>{
 
     public void deleteById(long id);
 
+    public List<Student> save(long id);
+    
+    public Student findById(long id);
+
+    /* private String firstName;
+    private String lastName;
+    private String phoneNumber;
+    private String email; */
+
     // public Student getStudentById(Student studentId);
 
     // @Query(nativeQuery = true, value = "SELECT e.title as title, e.teacherName as teacherName, " +

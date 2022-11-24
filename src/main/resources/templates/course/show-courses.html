@@ -14,7 +14,7 @@
           <table class="table table-bordered table-striped">
             <thead class="table-custom">
               <tr>
-                <th>Course Title</th>
+                <th>Title</th>
                 <!-- <th>Teacher Name</th> -->
                 <th>Course Description</th>
                 <th>Students</th>
@@ -25,18 +25,19 @@
             <tbody class="table-group-divider">
               <tr th:each="course: ${courses}">
                 <th th:text="${course.title}"></th>
+                <!-- <th><a href="/" th:text="${student.firstName}"></a></th> -->
                 <!-- <th th:text="${teacher.name}"></th> -->
                 <th th:text="${course.description}"></th>
-                <th th:text="${course.students}"></th>
+                <th><a href="/student/showStudents" th:text="${course.students}"></a></th>
                 <th th:text="${course.teachers}"></th>
                 <th>
                   <div class="btn-align">
                     <button class="btn btn-sm btn-custom edit">
                       <a
-                        href="/student/showStudents/edit"
-                        style="text-decoration: none; color: inherit">
-                        EDIT
-                      </a>
+                        th:href="@{/course/edit/{id}(id=${course.courseId})}"
+                        style="text-decoration: none; color: inherit"
+                        >EDIT</a
+                      >
                     </button>
                     <!-- <button class="btn btn-sm btn-custom delete" onclick="confirmCourseDeletion()">
                       <a
@@ -72,7 +73,6 @@
                       </div>
                     </div>
                   </div>
-
                 </th>
               </tr>
             </tbody>
