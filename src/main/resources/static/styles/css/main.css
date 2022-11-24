@@ -36,23 +36,66 @@ body {
   /* text-decoration: underline; */
   font-weight: 900;
 }
-.nav-item a:active {
+
+.a.nav-link:active {
   color: #7b3437 !important;
-}
-.nav-active a:active {
-  color: #7b3437 !important;
+  font-weight: 1000;
+  border: solid 2px #ff0f0f;
 }
 
+.navbar {
+  display: flex;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  justify-content: left;
+  /* border: solid 2px #ff0f0f; */
+}
 .navbar-nav {
+  margin-top: 40px;
   display: flex;
   justify-content: center;
+  position: relative;
+
+  border: solid 2px #d35e91;
 }
 
 .nav-bar-home a {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+
+  width: 500px;
+  height: 100%;
+
   font-size: 30px;
-  width: 100%;
+  font-weight: 900;
+  width: 500px;
   padding: 0;
   margin: 0;
+  text-decoration: none;
+  color: #540b06;
+  text-transform: uppercase;
+  /* border: solid 2px #2f111e; */
+}
+.head-custom {
+  line-height: 0.5;
+  margin-left: 20px;
+}
+.head-custom-1 {
+  /* margin-left: 10px; */
+}
+.head-custom-2 {
+  /* margin-left: 50px; */
+}
+.head-custom-3 {
+  /* margin-left: 150px; */
+}
+
+.nav-list {
+  text-align: center;
 }
 
 h1 {
@@ -65,14 +108,6 @@ h1 {
 
 .btn-custom {
   background-color: #f1e4e8 !important;
-}
-
-.card-body {
-  /* position: absolute; */
-}
-
-.nav-list {
-  text-align: center;
 }
 
 .table-custom {
@@ -148,7 +183,7 @@ h1 {
   /* display: inline-block; */
 
   padding: 15px 10px;
-  margin: 0 10px;
+  margin: 0 15px;
   box-shadow: 3px 3px 5px#1b1b3a89;
   height: 28rem;
   width: 18rem;
@@ -175,6 +210,13 @@ h1 {
   border: solid 2px #ffffff;
   color: #1b1b3a;
   background-color: #e4eaf1;
+  line-height: 1.5em;
+}
+.card-title.scroll {
+  overflow: auto;
+  width: 100%;
+  height: 30px;
+  color: #1b1b3a;
   line-height: 1.5em;
 }
 
