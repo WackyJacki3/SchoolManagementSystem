@@ -76,6 +76,24 @@ public class StudentController {
         return "student/show-students";
     }
 
+    @GetMapping("/showCourseStudents/{id}")
+    public String displayCourseStudents(@PathVariable("id") String courseId, Model model) {
+        Course courses = courseRepository.findById(Long.parseLong(courseId));
+        model.addAttribute("courses", courses);
+        List<Student> students = courses.getStudents();
+        System.out.println(students);
+        model.addAttribute("students", students);
+        return "student/show-courseStudents";
+    }
+
+    /* @GetMapping("/add")
+    public String displayStudentForm(Model model) {
+        model.addAttribute("student", new Student());
+        List<Course> courses = courseRepository.findAll();
+        model.addAttribute("courses", courses);
+        return "student/add-student";
+    } */
+
     // edit a student's info
     // @GetMapping("/students/edit/{studentId}")
     // public String editStudent(@PathVariable("studentId") Student studentId, Model model) {

@@ -9,10 +9,6 @@
 //     }
 // }
 
-// function deleteStudent() {
-//     document.getElementById("confirm").hidden=false
-// }
-
 function confirmDeletionOfStudent(id) {
     location.href ='/student/delete/' + id
 }

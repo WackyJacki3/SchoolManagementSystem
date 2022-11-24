@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.group_e.school_management_system.dao.iCourseRepository;
 import com.group_e.school_management_system.entity.Course;
+import com.group_e.school_management_system.entity.Student;
 
 @Controller
 @RequestMapping("/course")
@@ -57,5 +58,12 @@ public class CourseController {
         List<Course> courses = courseRepository.findAll();
         model.addAttribute("courses", courses);
         return "course/show-courses";
+    }
+
+    @GetMapping("/showCourse/{id}")
+    public String displayCourse(@PathVariable("id") String courseId, Model model) {
+        Course course = courseRepository.findById(Long.parseLong(courseId));
+        model.addAttribute("course", course);
+        return "course/show-course";
     }
 }
