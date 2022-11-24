@@ -29,13 +29,14 @@
                 <th th:text="${teacher.email}"></th>
                 <th th:text="${teacher.courses}"></th>
                 <th>
-                  <button class="btn btn-sm btn-custom edit">
-                    <a
-                      style="text-decoration: none; color: inherit"
-                      th:href="@{/teacher/edit/{id}(id=${teacher.teacherId})}"
-                      >EDIT</a
-                    >
-                  </button>
+                  <div class="btn-align">
+                    <button class="btn btn-sm btn-custom edit">
+                      <a
+                        style="text-decoration: none; color: inherit"
+                        th:href="@{/teacher/edit/{id}(id=${teacher.teacherId})}"
+                        >EDIT</a
+                      >
+                    </button>
 
                   <button class="btn btn-sm btn-custom delete">
                     <a
@@ -46,7 +47,6 @@
                     DELETE
                     </a>
                   </button>
-
 
                 </th>
               </tr>

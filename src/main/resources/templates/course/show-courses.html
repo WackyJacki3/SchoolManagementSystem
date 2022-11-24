@@ -28,7 +28,8 @@
                 <!-- <th><a href="/" th:text="${student.firstName}"></a></th> -->
                 <!-- <th th:text="${teacher.name}"></th> -->
                 <th th:text="${course.description}"></th>
-                <th><a href="/student/showStudents" th:text="${course.students}"></a></th>
+                <th><a th:href="@{/student/showCourseStudents/{id}(id=${course.courseId})}" th:text="${course.students}"></a></th>
+                <!-- th:href="@{/student/edit/{id}(id=${student.studentId})}" -->
                 <th th:text="${course.teachers}"></th>
                 <th>
                   <div class="btn-align">
