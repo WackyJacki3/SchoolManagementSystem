@@ -8,7 +8,6 @@
 
       <div class="row-of-tables">
         <div class="custom-table">
-          <!-- <h4>Teachers</h4> -->
           <hr />
 
           <table class="table table-bordered table-striped">
@@ -33,18 +32,46 @@
                 <th>
                   <button class="btn btn-sm btn-custom edit">
                     <a
+                      style="text-decoration: none; color: inherit"
                       th:href="@{/teacher/edit/{id}(id=${teacher.teacherId})}"
                       >EDIT</a
                     >
                   </button>
 
-                  <button class="btn btn-sm btn-custom delete">
+                  <!-- <button class="btn btn-sm btn-custom delete" onclick="confirmTeacherDeletion()">
                     <a
                       th:href="@{/teacher/delete/{id}(id=${teacher.teacherId})}"
-                      onclick="confirmStudentDeletion()">
+                      style="text-decoration: none; color: inherit">
+                      DELETE
+                    </a>
+                  </button> -->
+
+                  <button class="btn btn-sm btn-custom delete" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <a
+                      th:href="@{/teacher/delete/{id}(id=${teacher.teacherId})}"
+                      style="text-decoration: none; color: whitesmoke">
                       DELETE
                     </a>
                   </button>
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h2 class="modal-title" id="exampleModalLabel">Confirmation</h2>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          Are you sure you want to delete this teacher?
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                          <button type="button" class="btn btn-primary" th:onclick="confirmDeletionOfTeacher([[${teacher.teacherId}]])">Yes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                 </th>
               </tr>
             </tbody>
