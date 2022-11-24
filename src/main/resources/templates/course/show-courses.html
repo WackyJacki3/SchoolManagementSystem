@@ -14,7 +14,7 @@
           <table class="table table-bordered table-striped">
             <thead class="table-custom">
               <tr>
-                <th>Course Title</th>
+                <th>Title</th>
                 <!-- <th>Teacher Name</th> -->
                 <th>Course Description</th>
                 <th>Students</th>
@@ -31,13 +31,22 @@
                 <th><a href="/student/showStudents" th:text="${course.students}"></a></th>
                 <th th:text="${course.teachers}"></th>
                 <th>
-                  <button class="btn btn-success">
-                    <a
-                      th:href="@{/course/edit/{id}(id=${course.courseId})}"
-                      >EDIT</a
-                    >
-                  </button>
-                  <button class="btn btn-danger"><a th:href="@{/course/delete/{id}(id=${course.courseId})}">DELETE</a></button>
+                  <div class="btn-align">
+                    <button class="btn btn-sm btn-custom edit">
+                      <a
+                        th:href="@{/course/edit/{id}(id=${course.courseId})}"
+                        style="text-decoration: none; color: inherit"
+                        >EDIT</a
+                      >
+                    </button>
+                    <button class="btn btn-sm btn-custom delete">
+                      <a
+                        th:href="@{/course/delete/{id}(id=${course.courseId})} "
+                        onclick="confirmStudentDeletion()">
+                        DELETE
+                      </a>
+                    </button>
+                  </div>
                 </th>
               </tr>
             </tbody>

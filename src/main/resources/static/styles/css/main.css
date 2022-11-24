@@ -5,16 +5,31 @@
 @import "bootstrap/scss/utilities";
 
 * {
-  font-weight: 300;
+  font-weight: 400;
+}
+
+body {
+  background-color: #f1eced;
 }
 .navbar {
-  background-color: #b97375;
+  background: rgb(173, 97, 99);
+  background: linear-gradient(
+    90deg,
+    rgba(173, 97, 99, 1) 0%,
+    rgba(185, 115, 117, 1) 45%,
+    rgba(206, 177, 190, 1) 100%
+  );
 }
 
 .nav-item a {
   color: #e2dcde;
   font-weight: 800;
   text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  margin: 0 50px;
+  font-size: 20px;
+  /* border: solid 2px #2f111e; */
 }
 .nav-item a:hover {
   color: #ceb1be;
@@ -24,9 +39,21 @@
 .nav-item a:active {
   color: #7b3437 !important;
 }
-/* .nav-active a:active {
-  color: #7b3437;
-} */
+.nav-active a:active {
+  color: #7b3437 !important;
+}
+
+.navbar-nav {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-bar-home a {
+  font-size: 30px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
 
 h1 {
   margin: 10px 10px;
@@ -51,14 +78,12 @@ h1 {
 .table-custom {
   background-color: #1b1b3a;
   color: #f1e4e8;
-  font-weight: 700 !important;
+  font-weight: 1000 !important;
   text-align: center;
+  text-transform: uppercase;
 }
 
 .adding-page-custom {
-  margin-top: 100px;
-}
-.home-page-custom {
   margin-top: 100px;
 }
 
@@ -66,3 +91,108 @@ h1 {
   margin-top: 20px;
   margin-bottom: 30px;
 }
+
+/* button */
+.btn-custom.edit a {
+  display: inline-block;
+  width: 80px;
+  padding: 0.3em 0.5em;
+  background-color: #01a9d3;
+  box-shadow: 0 5px 0 #004f69;
+  border-radius: 20px;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+}
+.btn-custom.delete a {
+  display: inline-block;
+  width: 80px;
+  padding: 0.3em 0.5em;
+  background-color: #92140c;
+  box-shadow: 0 5px 0 #540b06;
+  border-radius: 20px;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+}
+.btn-custom a:hover {
+  box-shadow: none;
+  transform: translateY(5px);
+}
+.btn-align {
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.btn-home {
+  display: inline-block;
+  width: 100%;
+  padding: 0.3em 0.5em;
+  background-color: #3d3d84;
+  box-shadow: 0 5px 0 #11112f;
+  border-radius: 15px;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+}
+.btn-home:hover {
+  box-shadow: none;
+  color: #fff;
+  background-color: #3d3d84;
+  transform: translateY(3px);
+}
+
+.card-custom {
+  /* border: 3px solid black; */
+  /* display: inline-block; */
+
+  padding: 15px 10px;
+  margin: 0 10px;
+  box-shadow: 3px 3px 5px#1b1b3a89;
+  height: 28rem;
+  width: 18rem;
+  margin-top: 16px;
+  border: solid 1px #ceb1be;
+  background: rgb(241, 228, 232);
+  background: linear-gradient(
+    174deg,
+    rgba(230, 242, 251, 0.567) 0%,
+    rgb(255, 255, 255) 100%
+  );
+}
+.list-of-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.card-text.scroll {
+  overflow: auto;
+  width: 100%;
+  height: 110px;
+  padding: 5px;
+  border: solid 2px #ffffff;
+  color: #1b1b3a;
+  background-color: #e4eaf1;
+  line-height: 1.5em;
+}
+
+.card-custom.th-child {
+  margin-top: 100px;
+  padding: 10px 20px;
+}
+
+.home-page-custom {
+  margin-top: 100px;
+}
+
+/* .card-custom:last-child {
+  margin-top: 12px;
+  border: 1px solid black;
+} */
+
+/* .card-custom.first-child {
+  border: 3px solid black;
+  margin-top: 0;
+} */

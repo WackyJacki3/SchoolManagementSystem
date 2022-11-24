@@ -31,13 +31,13 @@
                 <th th:text="${student.courses}"></th>
                 <th>
                   <!-- <button class="btn btn-success"><a href="/students/edit/{studentId}">EDIT</a></button> -->
-                  <button class="btn btn-success">
+                  <button class="btn btn-sm btn-custom edit">
                     <a
                       th:href="@{/student/edit/{id}(id=${student.studentId})}"
                       >EDIT</a
                     >
                   </button>
-                  <button class="btn btn-danger">
+                  <button class="btn btn-sm btn-custom delete" onclick="confirmStudentDeletion()"></button>
                     <a
                       th:href="@{/student/delete/{id}(id=${student.studentId})}"
                       >DELETE</a

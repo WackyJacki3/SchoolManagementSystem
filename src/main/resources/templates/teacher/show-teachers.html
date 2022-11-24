@@ -3,7 +3,7 @@
   <head th:replace="layouts :: head (pageTitle = 'TEACHERS')"> </head>
   <body>
     <nav th:replace="layouts :: nav"></nav>
-    <div class="container">
+    <div class="container test">
       <h1>Teacher List</h1>
 
       <div class="row-of-tables">
@@ -31,13 +31,20 @@
                 <th th:text="${teacher.courses}"></th>
                 <!-- <th th:text="${teachee.course}"></th> -->
                 <th>
-                  <button class="btn btn-success">
+                  <button class="btn btn-sm btn-custom edit">
                     <a
                       th:href="@{/teacher/edit/{id}(id=${teacher.teacherId})}"
                       >EDIT</a
                     >
                   </button>
-                  <button class="btn btn-danger"><a th:href="@{/teacher/delete/{id}(id=${teacher.teacherId})}">DELETE</a></button>
+
+                  <button class="btn btn-sm btn-custom delete">
+                    <a
+                      th:href="@{/teacher/delete/{id}(id=${teacher.teacherId})}"
+                      onclick="confirmStudentDeletion()">
+                      DELETE
+                    </a>
+                  </button>
                 </th>
               </tr>
             </tbody>
