@@ -146,7 +146,7 @@ h1 {
   background-color: #92140c;
   box-shadow: 0 5px 0 #540b06;
   border-radius: 20px;
-  color: #fff;
+  color: #fff !important;
   cursor: pointer;
   text-decoration: none;
 }
