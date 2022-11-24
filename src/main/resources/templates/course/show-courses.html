@@ -25,26 +25,53 @@
             <tbody class="table-group-divider">
               <tr th:each="course: ${courses}">
                 <th th:text="${course.title}"></th>
+                <!-- <th><a href="/" th:text="${student.firstName}"></a></th> -->
                 <!-- <th th:text="${teacher.name}"></th> -->
                 <th th:text="${course.description}"></th>
-                <th th:text="${course.students}"></th>
+                <th><a href="/student/showStudents" th:text="${course.students}"></a></th>
                 <th th:text="${course.teachers}"></th>
                 <th>
                   <div class="btn-align">
                     <button class="btn btn-sm btn-custom edit">
                       <a
-                        href="/student/showStudents/edit"
+                        th:href="@{/course/edit/{id}(id=${course.courseId})}"
                         style="text-decoration: none; color: inherit"
                         >EDIT</a
                       >
                     </button>
-                    <button class="btn btn-sm btn-custom delete">
+                    <!-- <button class="btn btn-sm btn-custom delete" onclick="confirmCourseDeletion()">
                       <a
-                        th:href="@{/course/delete/{id}(id=${course.courseId})} "
-                        onclick="confirmStudentDeletion()">
+                        th:href="@{/course/delete/{id}(id=${course.courseId})}"
+                        style="text-decoration: none; color: inherit">
+                        DELETE
+                      </a>
+                    </button> -->
+
+                    <button class="btn btn-sm btn-custom delete" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                      <a
+                        th:href="@{/course/delete/{id}(id=${course.courseId})}"
+                        style="text-decoration: none; color: inherit">
                         DELETE
                       </a>
                     </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h2 class="modal-title" id="exampleModalLabel">Confirmation</h2>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            Are you sure you want to delete this course?
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                            <button type="button" class="btn btn-primary" th:onclick="confirmDeletionOfCourse([[${course.courseId}]])">Yes</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </th>
               </tr>
