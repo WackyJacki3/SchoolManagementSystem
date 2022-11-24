@@ -64,6 +64,7 @@
 
                   <button class="btn btn-sm btn-custom delete" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <a
+                      th:href="@{/student/delete/{id}(id=${student.studentId})}"
                       style="text-decoration: none; color: inherit">
                       DELETE
                     </a>
@@ -81,7 +82,12 @@
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+
                           <button type="button" class="btn btn-primary" th:onclick="confirmDeletionOfStudent([[${student.studentId}]])">Yes</button>
+                          <!-- <button type="button" class="btn btn-primary">
+                            <a th:href="@{/student/delete/{id}(id=${student.studentId})}" style="text-decoration: none; color: inherit">Yes</a>
+                          </button> -->
+
                         </div>
                       </div>
                     </div>
