@@ -15,6 +15,12 @@ public interface iCourseRepository extends CrudRepository<Course, Long>{
     @Override
     List<Course> findAll();
 
+    public void deleteById(long id);
+
+    public List<Course> save(long id);
+
+    public Course findById(long id);
+
     // @Query(nativeQuery = true, value = "SELECT e.title as title, e.teacherName as teacherName, " +
     // "COUNT(pe.courseName_id) as countofcourse " +
     // "FROM employee e " +

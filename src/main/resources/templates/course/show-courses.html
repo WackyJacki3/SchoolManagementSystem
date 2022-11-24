@@ -25,15 +25,15 @@
             <tbody class="table-group-divider">
               <tr th:each="course: ${courses}">
                 <th th:text="${course.title}"></th>
+                <!-- <th><a href="/" th:text="${student.firstName}"></a></th> -->
                 <!-- <th th:text="${teacher.name}"></th> -->
                 <th th:text="${course.description}"></th>
-                <th th:text="${course.students}"></th>
+                <th><a href="/student/showStudents" th:text="${course.students}"></a></th>
                 <th th:text="${course.teachers}"></th>
                 <th>
                   <button class="btn btn-success">
                     <a
-                      href="/student/showStudents/edit"
-                      style="text-decoration: none; color: inherit"
+                      th:href="@{/course/edit/{id}(id=${course.courseId})}"
                       >EDIT</a
                     >
                   </button>

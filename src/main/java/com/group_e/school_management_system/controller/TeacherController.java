@@ -40,6 +40,21 @@ public class TeacherController {
         return "redirect:/teacher/add";
     }
 
+    @GetMapping("/edit/{id}")
+    public String editTeacherForm(@PathVariable("id") String teacherId, Model model) {
+        Teacher teacher = teacherRepository.findById(Long.parseLong(teacherId));
+        model.addAttribute("teacher", teacher);
+        List<Course> courses = courseRepository.findAll();
+        model.addAttribute("courses", courses);
+        return "teacher/edit-teacher";
+    }
+
+    @PostMapping("/edit/save")
+    public String saveEditTeacher(Teacher teacher, Model model) {
+        teacherRepository.save(teacher);
+        return "redirect:/teacher/showTeachers";
+    }
+
     @GetMapping("/delete/{id}")
     public String deleteStudentById(@PathVariable("id") String teacherId, Model model) {
         teacherRepository.deleteById(Long.parseLong(teacherId));
@@ -63,9 +78,9 @@ public class TeacherController {
 
     //     return "teacher/edit-teacher";
     // }
-    @GetMapping("/showTeachers/edit")
+   /*  @GetMapping("/showTeachers/edit")
     public String editTeacher() {
         return "teacher/edit-teacher";
-    }
+    } */
 
 }
