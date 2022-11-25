@@ -22,21 +22,21 @@
               </tr>
             </thead>
             <tbody class="table-group-divider">
-              <tr th:each="student: ${students}">
-                <th><a href="/" th:text="${student.firstName}"></a></th>
+              <tr th:each="student: ${students}" th:attr="id=${'editModal' + student.studentId}">
+                <th> <span th:text="${student.firstName}"></span> <span th:text="${student.studentId}"></span></th>
                 <th th:text="${student.lastName}"></th>
                 <th th:text="${student.phoneNumber}"></th>
                 <th th:text="${student.email}"></th>
-                <th th:text="${student.courses}"></th>
-                <th>
-                  <button class="btn btn-sm btn-custom edit">
-                    <a
-                      style="text-decoration: none; color: inherit"
-                      th:href="@{/student/edit/{id}(id=${student.studentId})}"
-                    >
-                      EDIT
-                    </a>
-                  </button>
+                <th><a th:href="@{/course/showStudentCourses/{id}(id=${student.studentId})}" th:text="${student.courses}"></a></th>        
+                <th >
+                  <div class="btn-align">                
+                    <button class="btn btn-sm btn-custom edit">
+                      <a
+                        style="text-decoration: none; color: inherit"
+                        th:href="@{/student/edit/{id}(id=${student.studentId})}"
+                        >EDIT</a
+                      >
+                    </button>
 
                   <button class="btn btn-sm btn-custom delete">
                     <a

@@ -1,53 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head th:replace="layouts :: head (pageTitle = 'COURSE')"> </head>
+  <head th:replace="layouts :: head (pageTitle = 'COURSE TEACHERS')"> </head>
   <body>
     <nav th:replace="layouts :: nav"></nav>
-    <div class="container">
-      <h1 class="list-title">Course</h1>
+    <div class="container test">
+      <h1 th:text="${courses} + ' Teachers'">Teachers</h1>
 
       <div class="row-of-tables">
         <div class="custom-table">
-          <!-- <h4>Courses</h4> -->
           <hr />
 
           <table class="table table-bordered table-striped">
             <thead class="table-custom">
               <tr>
-                <th>Title</th>
-                <!-- <th>Teacher Name</th> -->
-                <th>Course Description</th>
-                <th>Students</th>
-                <th>Teacher(s)</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Phone Number</th>
+                <th>Email Address</th>
+                <th>Courses</th>
                 <th>Actions</th>
               </tr>
             </thead>
             <tbody class="table-group-divider">
-              <tr th:each="course: ${course}">
-                <th th:text="${course.title}"></th>
-                <!-- <th><a href="/" th:text="${student.firstName}"></a></th> -->
-                <!-- <th th:text="${teacher.name}"></th> -->
-                <th th:text="${course.description}"></th>
-
-                <th><a th:href="@{/student/showCourseStudents/{id}(id=${course.courseId})}" th:text="${course.students}"></a></th>
-                <th><a th:href="@{/teacher/showCourseTeachers/{id}(id=${course.courseId})}" th:text="${course.teachers}"></a></th>
-
+              <tr th:each="teacher: ${teachers}">
+                <th th:text="${teacher.firstName}"></th>
+                <th th:text="${teacher.lastName}"></th>
+                <th th:text="${teacher.phoneNumber}"></th>
+                <th th:text="${teacher.email}"></th>
+                <th><a th:href="@{/course/showTeacherCourses/{id}(id=${teacher.teacherId})}" th:text="${teacher.courses}"></a></th>
+                <!-- <th th:text="${teachee.course}"></th> -->
                 <th>
                   <div class="btn-align">
                     <button class="btn btn-sm btn-custom edit">
                       <a
-                        th:href="@{/course/edit/{id}(id=${course.courseId})}"
                         style="text-decoration: none; color: inherit"
+                        th:href="@{/teacher/edit/{id}(id=${teacher.teacherId})}"
                         >EDIT</a
                       >
                     </button>
-                    <!-- <button class="btn btn-sm btn-custom delete" onclick="confirmCourseDeletion()">
-                      <a
-                        th:href="@{/course/delete/{id}(id=${course.courseId})}"
-                        style="text-decoration: none; color: inherit">
-                        DELETE
-                      </a>
-                    </button> -->
+
+                    <!-- <button class="btn btn-sm btn-custom delete" onclick="confirmTeacherDeletion()">
+                    <a
+                      th:href="@{/teacher/delete/{id}(id=${teacher.teacherId})}"
+                      style="text-decoration: none; color: inherit">
+                      DELETE
+                    </a>
+                  </button> -->
 
                     <button
                       class="btn btn-sm btn-custom delete"
@@ -55,7 +53,7 @@
                       data-bs-target="#exampleModal"
                     >
                       <a
-                        th:href="@{/course/delete/{id}(id=${course.courseId})}"
+                        th:href="@{/teacher/delete/{id}(id=${teacher.teacherId})}"
                         style="text-decoration: none; color: inherit"
                       >
                         DELETE
@@ -83,7 +81,7 @@
                             ></button>
                           </div>
                           <div class="modal-body">
-                            Are you sure you want to delete this course?
+                            Are you sure you want to delete this teacher?
                           </div>
                           <div class="modal-footer">
                             <button
@@ -96,7 +94,7 @@
                             <button
                               type="button"
                               class="btn btn-primary"
-                              th:onclick="confirmDeletionOfCourse([[${course.courseId}]])"
+                              th:onclick="confirmDeletionOfTeacher([[${teacher.teacherId}]])"
                             >
                               Yes
                             </button>
