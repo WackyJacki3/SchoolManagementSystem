@@ -4,7 +4,7 @@
   <body>
     <nav th:replace="layouts :: nav"></nav>
     <div class="container test">
-      <h1 th:text="${courses} + ' Teachers'">Teachers</h1>
+      <h1 class="list-title" th:text="${courses} + ' Teachers'">Teachers</h1>
 
       <div class="row-of-tables">
         <div class="custom-table">
@@ -27,7 +27,12 @@
                 <th th:text="${teacher.lastName}"></th>
                 <th th:text="${teacher.phoneNumber}"></th>
                 <th th:text="${teacher.email}"></th>
-                <th><a th:href="@{/course/showTeacherCourses/{id}(id=${teacher.teacherId})}" th:text="${teacher.courses}"></a></th>
+                <th>
+                  <a
+                    th:href="@{/course/showTeacherCourses/{id}(id=${teacher.teacherId})}"
+                    th:text="${teacher.courses}"
+                  ></a>
+                </th>
                 <!-- <th th:text="${teachee.course}"></th> -->
                 <th>
                   <div class="btn-align">
