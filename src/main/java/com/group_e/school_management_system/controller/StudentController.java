@@ -21,11 +21,10 @@ import com.group_e.school_management_system.dao.iStudentRepository;
 import com.group_e.school_management_system.entity.Course;
 import com.group_e.school_management_system.entity.Student;
 
-
 @Controller
 @RequestMapping("/student")
 public class StudentController {
-    
+
     @Autowired
     iStudentRepository studentRepository;
 
@@ -56,7 +55,6 @@ public class StudentController {
         return "student/edit-student";
     }
 
-
     @PostMapping("/edit/save")
     public String saveEditStudent(Student student, Model model) {
         studentRepository.save(student);
@@ -85,48 +83,50 @@ public class StudentController {
         return "student/show-courseStudents";
     }
 
-    /* @GetMapping("/add")
-    public String displayStudentForm(Model model) {
-        model.addAttribute("student", new Student());
-        List<Course> courses = courseRepository.findAll();
-        model.addAttribute("courses", courses);
-        return "student/add-student";
-    } */
+    /*
+     * @GetMapping("/add")
+     * public String displayStudentForm(Model model) {
+     * model.addAttribute("student", new Student());
+     * List<Course> courses = courseRepository.findAll();
+     * model.addAttribute("courses", courses);
+     * return "student/add-student";
+     * }
+     */
 
     // edit a student's info
     // @GetMapping("/students/edit/{studentId}")
-    // public String editStudent(@PathVariable("studentId") Student studentId, Model model) {
-    //     Student student = studentRepository.getStudentById(studentId);
-    //     model.addAttribute("student", student);
+    // public String editStudent(@PathVariable("studentId") Student studentId, Model
+    // model) {
+    // Student student = studentRepository.getStudentById(studentId);
+    // model.addAttribute("student", student);
 
-    //     return "student/edit-student";
+    // return "student/edit-student";
     // }
     // @GetMapping("/showStudents/edit")
     // public String editStudent() {
-    //     return "student/edit-student";
+    // return "student/edit-student";
     // }
-
-
 
     // update a student's info
     // @PostMapping("students/edit/UpdateStudent")
-    // public String UpdateStudent(@ModelAttribute Student student, Model model, HttpSession session){
-    //     // studentRepository.addStudent(student);
+    // public String UpdateStudent(@ModelAttribute Student student, Model model,
+    // HttpSession session){
+    // // studentRepository.addStudent(student);
 
-    //     model.addAttribute("newStudent", new Student());
-    //     session.setAttribute("msg","Student Added Sucessfully...");
+    // model.addAttribute("newStudent", new Student());
+    // session.setAttribute("msg","Student Added Sucessfully...");
 
-    //     return "StudentAdd";
+    // return "StudentAdd";
     // }
-    
 
     // delete a student
     // @GetMapping("/Studentshow/delete/{ID}")
-    // public String deleteStudent(@PathVariable("ID") Long ID, HttpSession session) {
-    //     studentSer.deleteByStudentId(ID);
-    //     session.setAttribute("msg", "The User ID " + ID + " Deleted Succesfully");
+    // public String deleteStudent(@PathVariable("ID") Long ID, HttpSession session)
+    // {
+    // studentSer.deleteByStudentId(ID);
+    // session.setAttribute("msg", "The User ID " + ID + " Deleted Succesfully");
 
-    //     return "redirect:/Studentshow";
+    // return "redirect:/Studentshow";
     // }
-    
+
 }

@@ -13,11 +13,11 @@ import com.group_e.school_management_system.entity.Course;
 
 @Controller
 public class HomeController {
-    
+
     @Autowired
     iCourseRepository courseRepository;
 
-    @GetMapping("/")
+    @GetMapping("/home")
     public String displayHome(Model model) {
         List<Course> courses = courseRepository.findAll();
         model.addAttribute("courses", courses);
