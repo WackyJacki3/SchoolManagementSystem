@@ -10,6 +10,35 @@
 
 body {
   background-color: #f1eced;
+  font-family: Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic,
+    sans-serif;
+}
+@keyframes image_anime {
+  0% {
+    background-image: url(bg1.jpg); /* 背景画像1を指定 */
+  }
+  50% {
+    background-image: url(bg2.jpg); /* 背景画像2を指定 */
+  }
+  100% {
+    background-image: url(bg4.jpg); /* 背景画像1を指定 */
+  }
+}
+
+.bg-img {
+  width: 200px; /* 横幅を200pxに指定 */
+  height: 200px; /* 高さを200pxに指定 */
+  animation: image_anime 10s ease infinite; /* 5秒のアニメーションを繰り返す */
+}
+
+.bg-img {
+  /* background-image: url(background.jpg); */
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-color: rgba(255, 255, 255, 0.6);
+  background-blend-mode: lighten;
+  background-repeat: repeat-y;
 }
 .navbar {
   background: rgb(173, 97, 99);
@@ -23,7 +52,7 @@ body {
 
 .nav-item a {
   color: #e2dcde;
-  font-weight: 800;
+  font-weight: 200;
   text-transform: uppercase;
   display: flex;
   justify-content: center;
@@ -34,13 +63,12 @@ body {
 .nav-item a:hover {
   color: #ceb1be;
   /* text-decoration: underline; */
-  font-weight: 900;
+  font-weight: 300;
 }
 
 .a.nav-link:active {
   color: #7b3437 !important;
   font-weight: 1000;
-  border: solid 2px #ff0f0f;
 }
 
 .navbar {
@@ -51,26 +79,26 @@ body {
   /* border: solid 2px #ff0f0f; */
 }
 .navbar-nav {
-  margin-top: 40px;
+  margin: 6px 0;
   display: flex;
   justify-content: center;
   position: relative;
 
-  border: solid 2px #d35e91;
+  /* border: solid 2px #d35e91; */
 }
 
 .nav-bar-home a {
   position: absolute;
-  top: 0;
-  left: 50%;
+  top: 5px;
+  /* left: 50%;
   transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
+  -ms-transform: translateX(-50%); */
 
   width: 500px;
   height: 100%;
 
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 900;
   width: 500px;
   padding: 0;
@@ -80,9 +108,10 @@ body {
   text-transform: uppercase;
   /* border: solid 2px #2f111e; */
 }
-.head-custom {
+.head-custom p {
   line-height: 0.5;
   margin-left: 20px;
+  font-weight: 100;
 }
 .head-custom-1 {
   /* margin-left: 10px; */
@@ -181,26 +210,55 @@ h1 {
 .card-custom {
   /* border: 3px solid black; */
   /* display: inline-block; */
+  transition: all 0.3s ease 0s;
 
   padding: 15px 10px;
   margin: 0 15px;
-  box-shadow: 3px 3px 5px#1b1b3a89;
-  height: 28rem;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  height: 24rem;
   width: 18rem;
   margin-top: 16px;
-  border: solid 1px #ceb1be;
+  /* border: solid 1px #ceb1be; */
   background: rgb(241, 228, 232);
   background: linear-gradient(
     174deg,
     rgba(230, 242, 251, 0.567) 0%,
     rgb(255, 255, 255) 100%
   );
+
+  position: relative;
+  top: 0;
+  padding: 10px 20px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  color: #333;
+  text-decoration: none;
+  outline: none;
+  /*アニメーションの設定*/
+  transition: all 0.3s;
 }
+
+.card-custom:hover {
+  top: -3px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+.card-link {
+  text-decoration: none;
+  transition: all 0.3s ease 0s;
+}
+
+.card-link:hover {
+  top: -3px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+}
+
 .list-of-cards {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: left;
 }
 .card-text.scroll {
   overflow: auto;
@@ -212,8 +270,12 @@ h1 {
   background-color: #e4eaf1;
   line-height: 1.5em;
 }
+.card-title {
+  font-weight: 300;
+}
 .card-title.scroll {
   overflow: auto;
+  font-weight: 300;
   width: 100%;
   height: 30px;
   color: #1b1b3a;
@@ -226,7 +288,7 @@ h1 {
 }
 
 .home-page-custom {
-  margin-top: 100px;
+  margin-top: 65px;
 }
 
 /* .card-custom:last-child {
