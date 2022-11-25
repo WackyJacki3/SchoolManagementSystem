@@ -28,7 +28,12 @@
                   <th th:text="${teacher.lastName}"></th>
                   <th th:text="${teacher.phoneNumber}"></th>
                   <th th:text="${teacher.email}"></th>
-                  <th th:text="${teacher.courses}"></th>
+                  <th>
+                    <a
+                      th:href="@{/course/showTeacherCourses/{id}(id=${teacher.teacherId})}"
+                      th:text="${teacher.courses}"
+                    ></a>
+                  </th>
                   <th>
                     <div class="btn-align">
                       <button class="btn btn-sm btn-custom edit">
