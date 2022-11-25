@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head th:replace="layouts :: head (pageTitle = 'TEACHERS')"> </head>
+  <head th:replace="layouts :: head (pageTitle = 'COURSE TEACHERS')"> </head>
   <body>
     <nav th:replace="layouts :: nav"></nav>
     <div class="container test">
-      <h1>Teacher List</h1>
+      <h1 th:text="${courses} + ' Teachers'">Teachers</h1>
 
       <div class="row-of-tables">
         <div class="custom-table">
