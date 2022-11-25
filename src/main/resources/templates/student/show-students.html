@@ -24,7 +24,7 @@
             </thead>
             <tbody class="table-group-divider">
               <tr th:each="student: ${students}" th:attr="id=${'editModal' + student.studentId}">
-                <th> <span th:text="${student.firstName}"></span> <span th:text="${student.studentId}"></span></th>
+                <th th:text="${student.firstName}"></th>
                 <th th:text="${student.lastName}"></th>
                 <th th:text="${student.phoneNumber}"></th>
                 <th th:text="${student.email}"></th>
