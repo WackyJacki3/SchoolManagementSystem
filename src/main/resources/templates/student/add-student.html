@@ -5,6 +5,7 @@
     <head th:replace="layouts :: head (pageTitle = 'CREATE STUDENT')"></head>
 <body>
     <nav th:replace="layouts :: nav"></nav>
+    <div class="bg-img">
     <div class=" container add-section">
         <form action="/student/save" method="POST" th:object="${student}">
             <fieldset>
@@ -37,6 +38,7 @@
                 <button class="btn btn-dark btn-add">Submit</button>
             </fieldset>
         </form>
+    </div>
     </div>
 </body>
 </html>
