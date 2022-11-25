@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 // import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -63,7 +64,7 @@ public class StudentController {
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteStudentById(@PathVariable("id") String studentId, Model model) {
+    public String deleteStudentById(@PathVariable("id") String studentId, Boolean shouldDelete, Model model) {
         studentRepository.deleteById(Long.parseLong(studentId));
         return "redirect:/student/showStudents";
     }
@@ -72,7 +73,6 @@ public class StudentController {
     public String displayStudents(Model model) throws JsonProcessingException {
         List<Student> students = studentRepository.findAll();
         model.addAttribute("students", students);
-
         return "student/show-students";
     }
 
@@ -81,7 +81,6 @@ public class StudentController {
         Course courses = courseRepository.findById(Long.parseLong(courseId));
         model.addAttribute("courses", courses);
         List<Student> students = courses.getStudents();
-        System.out.println(students);
         model.addAttribute("students", students);
         return "student/show-courseStudents";
     }

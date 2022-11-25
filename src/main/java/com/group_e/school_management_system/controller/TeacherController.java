@@ -69,6 +69,15 @@ public class TeacherController {
         return "teacher/show-teachers";
     }
 
+    @GetMapping("/showCourseTeachers/{id}")
+    public String displayCourseStudents(@PathVariable("id") String courseId, Model model) {
+        Course courses = courseRepository.findById(Long.parseLong(courseId));
+        model.addAttribute("courses", courses);
+        List<Teacher> teachers = courses.getTeachers();
+        model.addAttribute("teachers", teachers);
+        return "teacher/show-courseTeachers";
+    }
+
 
     // edit a teacher's info
     // @GetMapping("/teachers/edit/{teacherId}")

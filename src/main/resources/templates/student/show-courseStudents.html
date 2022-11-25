@@ -4,7 +4,7 @@
   <body>
     <nav th:replace="layouts :: nav"></nav>
     <div class="container">
-      <h1>Students</h1>
+      <h1 th:text="${courses} + ' Students'"></h1>
       <!-- h5 class="card-title" th:text="${course.title}"></h5> -->
 
       <div class="row-of-tables">
@@ -25,11 +25,11 @@
             </thead>
             <tbody class="table-group-divider">
               <tr th:each="student: ${students}">
-                <th><a href="/" th:text="${student.firstName}"></a></th>
+                <th th:text="${student.firstName}"></th>
                 <th th:text="${student.lastName}"></th>
                 <th th:text="${student.phoneNumber}"></th>
                 <th th:text="${student.email}"></th>
-                <th th:text="${student.courses}"></th>
+                <th><a th:href="@{/course/showStudentCourses/{id}(id=${student.studentId})}" th:text="${student.courses}"></a></th>
                 <th>
                   <!-- <button class="btn btn-success"><a href="/students/edit/{studentId}">EDIT</a></button> -->
                   <button class="btn btn-sm btn-custom edit">

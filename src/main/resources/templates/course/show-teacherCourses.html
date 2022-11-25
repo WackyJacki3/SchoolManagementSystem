@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head th:replace="layouts :: head (pageTitle = 'COURSE')"> </head>
+  <head th:replace="layouts :: head (pageTitle = 'TEACHER COURSES')"> </head>
   <body>
     <nav th:replace="layouts :: nav"></nav>
     <div class="container">
-      <h1>Course</h1>
+      <h1 th:text="${teachers} + '\'s Courses'"></h1>
 
       <div class="row-of-tables">
         <div class="custom-table">
@@ -23,12 +23,13 @@
               </tr>
             </thead>
             <tbody class="table-group-divider">
-              <tr th:each="course: ${course}">
+              <tr th:each="course: ${courses}">
                 <th th:text="${course.title}"></th>
                 <!-- <th><a href="/" th:text="${student.firstName}"></a></th> -->
                 <!-- <th th:text="${teacher.name}"></th> -->
                 <th th:text="${course.description}"></th>
                 <th><a th:href="@{/student/showCourseStudents/{id}(id=${course.courseId})}" th:text="${course.students}"></a></th>
+                <!-- th:href="@{/student/edit/{id}(id=${student.studentId})}" -->
                 <th><a th:href="@{/teacher/showCourseTeachers/{id}(id=${course.courseId})}" th:text="${course.teachers}"></a></th>
                 <th>
                   <div class="btn-align">

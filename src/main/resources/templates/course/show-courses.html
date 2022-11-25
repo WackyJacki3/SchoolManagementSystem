@@ -30,7 +30,7 @@
                 <th th:text="${course.description}"></th>
                 <th><a th:href="@{/student/showCourseStudents/{id}(id=${course.courseId})}" th:text="${course.students}"></a></th>
                 <!-- th:href="@{/student/edit/{id}(id=${student.studentId})}" -->
-                <th th:text="${course.teachers}"></th>
+                <th><a th:href="@{/teacher/showCourseTeachers/{id}(id=${course.courseId})}" th:text="${course.teachers}"></a></th>
                 <th>
                   <div class="btn-align">
                     <button class="btn btn-sm btn-custom edit">
