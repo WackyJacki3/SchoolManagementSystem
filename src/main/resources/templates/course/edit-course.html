@@ -3,11 +3,11 @@
   <head th:replace="layouts :: head (pageTitle = 'EDIT COURSE')"> </head>
   <body>
     <nav th:replace="layouts :: nav"></nav>
-    <div class="container">
+    <div class="container add-section">
       <!-- <form action="/course/add" method="POST"> -->
       <form action="/course/edit/save" method="POST">
         <fieldset>
-          <legend class="adding-page-custom">Add New Course</legend>
+          <legend class="adding-page-custom">Edit Course</legend>
           <div class="form-group mb-2">
             <label for="title" class="mb-2">Course Title: </label>
             <input
@@ -19,11 +19,12 @@
 
           <div class="form-group mb-2">
             <label for="description" class="mb-2">Course Description: </label>
-            <input
-              type="text"
+            <textarea
               class="form-control"
+              id="exampleFormControlTextarea1"
+              rows="3"
               th:field="${course.description}"
-            />
+            ></textarea>
           </div>
 
           <!-- <div class="form-group mb-2">
@@ -38,12 +39,18 @@
                 </div> -->
 
           <br />
-          <button type="submit" class="btn btn-dark">Submit</button>
-          <div class="row" >
+          <button type="submit" class="btn btn-dark btn-add">Submit</button>
+          <div class="row">
             <div class="col">
-            <label for="firstName" class="mb-2"></label>
-            <input style="display: none;" class="form-control" type="text" th:field="${course.courseId}">
-        </div>
+              <label for="firstName" class="mb-2"></label>
+              <input
+                style="display: none"
+                class="form-control"
+                type="text"
+                th:field="${course.courseId}"
+              />
+            </div>
+          </div>
         </fieldset>
       </form>
     </div>
