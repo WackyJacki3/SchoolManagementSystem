@@ -5,7 +5,7 @@
     <head th:replace="layouts :: head (pageTitle = 'CREATE STUDENT')"></head>
 <body>
     <nav th:replace="layouts :: nav"></nav>
-    <div class=" container">
+    <div class=" container add-section">
         <form action="/student/save" method="POST" th:object="${student}">
             <fieldset>
                 <legend class="adding-page-custom">New Student</legend>
@@ -30,11 +30,11 @@
                 </div>
                 <div class="form-group select-list">
                     <label for="student_course" class="mb-1">Courses: </label>
-                    <select class="form-control" multiple="multiple" th:field="*{courses}">
+                    <select class="form-control multi" multiple="multiple" th:field="*{courses}">
                         <option th:each="course: ${courses}" th:value="${course.courseId}" th:text="${course}"></option>
                     </select>
                 </div>
-                <button class="btn btn-dark">Submit</button>
+                <button class="btn btn-dark btn-add">Submit</button>
             </fieldset>
         </form>
     </div>
