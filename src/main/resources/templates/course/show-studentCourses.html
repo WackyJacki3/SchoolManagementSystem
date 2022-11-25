@@ -3,44 +3,55 @@
   <head th:replace="layouts :: head (pageTitle = 'COURSES')"> </head>
   <body>
     <nav th:replace="layouts :: nav"></nav>
-    <div class="container">
-      <h1 th:text="${students} + '\'s Courses'"></h1>
+    <div class="bg-img">
+      <div class="container list">
+        <h1 class="list-title" th:text="${students} + '\'s Courses'"></h1>
 
-      <div class="row-of-tables">
-        <div class="custom-table">
-          <!-- <h4>Courses</h4> -->
-          <hr />
+        <div class="row-of-tables">
+          <div class="custom-table">
+            <!-- <h4>Courses</h4> -->
+            <hr />
 
-          <table class="table table-bordered table-striped">
-            <thead class="table-custom">
-              <tr>
-                <th>Title</th>
-                <!-- <th>Teacher Name</th> -->
-                <th>Course Description</th>
-                <th>Students</th>
-                <th>Teacher(s)</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody class="table-group-divider">
-              <tr th:each="course: ${courses}">
-                <th th:text="${course.title}"></th>
-                <!-- <th><a href="/" th:text="${student.firstName}"></a></th> -->
-                <!-- <th th:text="${teacher.name}"></th> -->
-                <th th:text="${course.description}"></th>
-                <th><a th:href="@{/student/showCourseStudents/{id}(id=${course.courseId})}" th:text="${course.students}"></a></th>
-                <!-- th:href="@{/student/edit/{id}(id=${student.studentId})}" -->
-                <th><a th:href="@{/teacher/showCourseTeachers/{id}(id=${course.courseId})}" th:text="${course.teachers}"></a></th>
-                <th>
-                  <div class="btn-align">
-                    <button class="btn btn-sm btn-custom edit">
-                      <a
-                        th:href="@{/course/edit/{id}(id=${course.courseId})}"
-                        style="text-decoration: none; color: inherit"
-                        >EDIT</a
-                      >
-                    </button>
-                    <!-- <button class="btn btn-sm btn-custom delete" onclick="confirmCourseDeletion()">
+            <table class="table table-bordered table-striped">
+              <thead class="table-custom">
+                <tr>
+                  <th>Title</th>
+                  <!-- <th>Teacher Name</th> -->
+                  <th>Course Description</th>
+                  <th>Students</th>
+                  <th>Teacher(s)</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody class="table-group-divider">
+                <tr th:each="course: ${courses}">
+                  <th th:text="${course.title}"></th>
+                  <!-- <th><a href="/" th:text="${student.firstName}"></a></th> -->
+                  <!-- <th th:text="${teacher.name}"></th> -->
+                  <th th:text="${course.description}"></th>
+                  <th>
+                    <a
+                      th:href="@{/student/showCourseStudents/{id}(id=${course.courseId})}"
+                      th:text="${course.students}"
+                    ></a>
+                  </th>
+                  <!-- th:href="@{/student/edit/{id}(id=${student.studentId})}" -->
+                  <th>
+                    <a
+                      th:href="@{/teacher/showCourseTeachers/{id}(id=${course.courseId})}"
+                      th:text="${course.teachers}"
+                    ></a>
+                  </th>
+                  <th>
+                    <div class="btn-align">
+                      <button class="btn btn-sm btn-custom edit">
+                        <a
+                          th:href="@{/course/edit/{id}(id=${course.courseId})}"
+                          style="text-decoration: none; color: inherit"
+                          >EDIT</a
+                        >
+                      </button>
+                      <!-- <button class="btn btn-sm btn-custom delete" onclick="confirmCourseDeletion()">
                       <a
                         th:href="@{/course/delete/{id}(id=${course.courseId})}"
                         style="text-decoration: none; color: inherit">
@@ -48,36 +59,67 @@
                       </a>
                     </button> -->
 
-                    <button class="btn btn-sm btn-custom delete" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                      <a
-                        th:href="@{/course/delete/{id}(id=${course.courseId})}"
-                        style="text-decoration: none; color: inherit">
-                        DELETE
-                      </a>
-                    </button>
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h2 class="modal-title" id="exampleModalLabel">Confirmation</h2>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body">
-                            Are you sure you want to delete this course?
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                            <button type="button" class="btn btn-primary" th:onclick="confirmDeletionOfCourse([[${course.courseId}]])">Yes</button>
+                      <button
+                        class="btn btn-sm btn-custom delete"
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModal"
+                      >
+                        <a
+                          th:href="@{/course/delete/{id}(id=${course.courseId})}"
+                          style="text-decoration: none; color: inherit"
+                        >
+                          DELETE
+                        </a>
+                      </button>
+                      <!-- Modal -->
+                      <div
+                        class="modal fade"
+                        id="exampleModal"
+                        tabindex="-1"
+                        aria-labelledby="exampleModalLabel"
+                        aria-hidden="true"
+                      >
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h2 class="modal-title" id="exampleModalLabel">
+                                Confirmation
+                              </h2>
+                              <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                              ></button>
+                            </div>
+                            <div class="modal-body">
+                              Are you sure you want to delete this course?
+                            </div>
+                            <div class="modal-footer">
+                              <button
+                                type="button"
+                                class="btn btn-secondary"
+                                data-bs-dismiss="modal"
+                              >
+                                No
+                              </button>
+                              <button
+                                type="button"
+                                class="btn btn-primary"
+                                th:onclick="confirmDeletionOfCourse([[${course.courseId}]])"
+                              >
+                                Yes
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </th>
-              </tr>
-            </tbody>
-          </table>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

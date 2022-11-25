@@ -5,6 +5,7 @@ window.addEventListener("load", () => {
       links[i].classList.add("active");
     }
   }
+
   // Add "first-child"
   // const cards = document.querySelectorAll(".card-custom");
   // console.log(cards[0]);
