@@ -3,37 +3,38 @@
   <head th:replace="layouts :: head (pageTitle = 'CREATE COURSE')"> </head>
   <body>
     <nav th:replace="layouts :: nav"></nav>
-    <div class="container add-section">
-      <!-- <form action="/course/add" method="POST"> -->
-      <form action="/course/save" method="POST">
-        <fieldset>
-          <legend class="adding-page-custom">Add New Course</legend>
-          <div class="form-group mb-2">
-            <label for="title" class="mb-2">Course Title: </label>
-            <input
-              class="form-control"
-              type="text"
-              th:field="${course.title}"
-            />
-          </div>
+    <div class="bg-img">
+      <div class="container add-section">
+        <!-- <form action="/course/add" method="POST"> -->
+        <form action="/course/save" method="POST">
+          <fieldset>
+            <legend class="adding-page-custom">Add New Course</legend>
+            <div class="form-group mb-2">
+              <label for="title" class="mb-2">Course Title: </label>
+              <input
+                class="form-control"
+                type="text"
+                th:field="${course.title}"
+              />
+            </div>
 
-          <div class="form-group mb-2">
-            <label for="description" class="mb-2">Course Description: </label>
-            <!-- <input
+            <div class="form-group mb-2">
+              <label for="description" class="mb-2">Course Description: </label>
+              <!-- <input
               type="text"
               class="form-control description"
               th:field="${course.description}"
             /> -->
 
-            <textarea
-              class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="3"
-              th:field="${course.description}"
-            ></textarea>
-          </div>
+              <textarea
+                class="form-control"
+                id="exampleFormControlTextarea1"
+                rows="3"
+                th:field="${course.description}"
+              ></textarea>
+            </div>
 
-          <!-- <div class="form-group mb-2">
+            <!-- <div class="form-group mb-2">
                     <label class="mb-2">Courses: </label>
                     <br>
                     <select class="form-control" multiple="multiple" th:field="*{courses}">
@@ -44,10 +45,11 @@
                     </select>
                 </div> -->
 
-          <br />
-          <button type="submit" class="btn btn-dark btn-add">Submit</button>
-        </fieldset>
-      </form>
+            <br />
+            <button type="submit" class="btn btn-dark btn-add">Submit</button>
+          </fieldset>
+        </form>
+      </div>
     </div>
   </body>
 </html>
